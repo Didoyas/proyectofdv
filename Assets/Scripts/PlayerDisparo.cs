@@ -51,6 +51,7 @@ public class PlayerDisparo : MonoBehaviour
             if (cargasActuales < maxCargas) // si las cargas actuuales son menores a las maximas
             {
                 cargasActuales = cargasActuales+5; //se recuperan 5 cargas 
+                if(cargasActuales > maxCargas) cargasActuales = maxCargas;
                 ActualizarUI(); // se actualizan las cargas en el textio de pantalla
                 
             }
@@ -61,7 +62,7 @@ public class PlayerDisparo : MonoBehaviour
     {
         if (cargasText != null) 
         {
-            cargasText.text = "Cargas: " + cargasActuales + " / " + maxCargas;
+            cargasText.text = "Cargas " + cargasActuales + " / " + maxCargas;
         }
     }
 }

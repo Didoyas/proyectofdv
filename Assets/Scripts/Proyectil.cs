@@ -19,4 +19,12 @@ public class Proyectil : MonoBehaviour
     {
         transform.Translate(speed * targetVector * Time.deltaTime); //movimiento de el proyectil 
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Tilemap"))
+        {
+            Destroy(gameObject); // destruccion si toca pared
+        }
+    }
 }
