@@ -18,6 +18,8 @@ Thumbs.db
 # =============== #
 # IDEs #
 # =============== #
+.vs/
+.vsconfig
 .vscode/
 .idea/
 *.sln

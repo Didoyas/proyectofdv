@@ -1,15 +1,15 @@
 using UnityEngine;
-
-using UnityEngine;
+using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
+    public Text dashText;
 
     public float dashSpeed = 16f;
     public float dashDuration = 0.2f;
-    public float dashCooldown = 0.6f;
+    public float dashCooldown = 1f;
     private Vector2 dashDirection;
 
     private float _dashTimer;
@@ -23,7 +23,11 @@ public class Movimiento : MonoBehaviour
     private float cooldownTimer
     {
         get { return _cooldownTimer; }
-        set { _cooldownTimer = Mathf.Max(0f, value); }
+        set
+        {
+            _cooldownTimer = Mathf.Max(0f, value);
+            ActualizarUI();
+        }
     }
 
     void Start()
@@ -61,6 +65,17 @@ public class Movimiento : MonoBehaviour
         else
         {
             rb.linearVelocity = movement * moveSpeed;
+        }
+    }
+
+    void ActualizarUI()
+    {
+        if (dashText != null)
+        {
+            float newAlpha = cooldownTimer <= 0f ? 1f : 0.2f;
+            Color newColor = dashText.color;
+            newColor.a = newAlpha;
+            dashText.color = newColor;
         }
     }
 }
