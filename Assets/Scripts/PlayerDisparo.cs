@@ -9,7 +9,7 @@ public class PlayerDisparo : MonoBehaviour
     public float proyectilSpeed = 10f; //velocidad de lanzamiento del proyectil
 
     public Text cargasText; //texto UI de las cargas actuales
-
+    public static bool puedeDisparar = true;
     public int maxCargas = 20; //maximo de cargas         
     private int _cargasActuales; //cargas actuales
     private int cargasActuales
@@ -33,7 +33,7 @@ public class PlayerDisparo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
+        if (puedeDisparar && Input.GetMouseButtonDown(0) && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
         {
             GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity); //se instancia proyectil 
 
