@@ -22,7 +22,7 @@ public class Proyectil : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Tilemap"))
+        if (other.CompareTag("Tilemap") || other.CompareTag("Enemigo") )
         {
             Destroy(gameObject); // destruccion si toca pared
         }
