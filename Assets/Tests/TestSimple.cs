@@ -14,6 +14,14 @@ public class TestSimple
         Assert.AreEqual(4, r, "2 + 2 igual a 4");
     }
 
+    [Test]
+    public void TestSimpleFails()
+    {
+        // Use the Assert class to test conditions
+        int r = 2 + 1;
+        Assert.AreEqual(4, r, "2 + 1 not igual a 4");
+    }
+
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
