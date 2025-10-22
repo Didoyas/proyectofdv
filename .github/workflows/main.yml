@@ -1,0 +1,31 @@
+name: Unity Testing
+
+on:
+  push:           # run on push
+  pull_request:   # run on PRs
+
+jobs:
+  editmode:
+    name: EditMode testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Testing
+        uses: game-ci/unity-test-runner@v4
+        with:
+          projectPath: .
+          unityVersion: 6000.2.6f1
+          testMode: EditMode
+          artifactsPath: artifacts
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          
+      - name: Logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: editmode-results
+          path: artifacts
