@@ -6,7 +6,6 @@ public class PlayerDisparo : MonoBehaviour
 {
 
     public GameObject baston, proyectilPrefab; //Generador de proyectiles (baston), Prefab del protyectil
-    public float proyectilSpeed = 10f; //velocidad de lanzamiento del proyectil
 
     public Text cargasText; //texto UI de las cargas actuales
     public static bool puedeDisparar = true;
@@ -43,7 +42,6 @@ public class PlayerDisparo : MonoBehaviour
 
             Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
             proyectilScript.targetVector = direction; // direccion del proyectil 
-            proyectilScript.speed = proyectilSpeed; //velocidad del proyectil 
 
             cargasActuales--; //se reduce una carga al disparar
         }

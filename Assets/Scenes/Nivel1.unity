@@ -3417,7 +3417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDisparo
   baston: {fileID: 1760422202}
   proyectilPrefab: {fileID: 8399312588273230862, guid: 6e777d765626d504e906e1ff35d2a398, type: 3}
-  proyectilSpeed: 7
   cargasText: {fileID: 700610265}
   maxCargas: 20
   recargaTiempo: 3
