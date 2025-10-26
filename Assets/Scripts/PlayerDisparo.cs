@@ -42,6 +42,7 @@ public class PlayerDisparo : MonoBehaviour
 
             Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
             proyectilScript.targetVector = direction; // direccion del proyectil 
+            proyectilScript.ignoreTags = new string[] { "Player" }; // ignorar colisiones con el jugador
 
             cargasActuales--; //se reduce una carga al disparar
         }

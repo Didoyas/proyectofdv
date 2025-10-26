@@ -1,15 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Movimiento : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    private Rigidbody2D rb;
-    public Text dashText;
+    [SerializeField]
+    private InputActionAsset playerInputActionAsset;
+    private InputActionMap playerActionMap;
+    private InputAction moveAction;
+    private InputAction dashAction;
 
-    public float dashSpeed = 16f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 1f;
+    [SerializeField]
+    private float moveSpeed = 5f;
+    private Rigidbody2D rb;
+    [SerializeField]
+    private Text dashText;
+
+    [SerializeField]
+    private float dashSpeed = 16f;
+    [SerializeField]
+    private float dashDuration = 0.2f;
+    [SerializeField]
+    private float dashCooldown = 1f;
     private Vector2 dashDirection;
 
     private float _dashTimer;
@@ -30,27 +42,42 @@ public class Movimiento : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        playerActionMap = playerInputActionAsset.FindActionMap("Player");
+        moveAction = playerActionMap.FindAction("Move");
+        dashAction = playerActionMap.FindAction("Dash");
+    }
+
+    void OnEnable() { playerActionMap.Enable(); }
+    void OnDisable() { playerActionMap.Disable(); }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        Vector2 movement = moveAction.ReadValue<Vector2>();
+        movement.Normalize();
+
+        bool dashPressed = dashAction.WasPressedThisFrame();
+        if (dashPressed && dashTimer <= 0f && cooldownTimer <= 0f && movement != Vector2.zero)
+        {
+            dashDirection = movement;
+            dashTimer = dashDuration;
+        }
+    }
+
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Vector2 movement = moveAction.ReadValue<Vector2>();
         movement.Normalize();
 
         if (cooldownTimer > 0f)
         {
             cooldownTimer -= Time.fixedDeltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.Space) && dashTimer <= 0f && cooldownTimer <= 0f && movement != Vector2.zero)
-        {
-            dashDirection = movement;
-            dashTimer = dashDuration;
         }
 
         if (dashTimer > 0f)
