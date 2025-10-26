@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   vida: 1
+  proyectilPrefab: {fileID: 8399312588273230862, guid: 6e777d765626d504e906e1ff35d2a398, type: 3}
+  fireInterval: 0.5
+  sightRange: 15
+  lineOfSightBlockers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &3484075127230111038
 Rigidbody2D:
   serializedVersion: 5
