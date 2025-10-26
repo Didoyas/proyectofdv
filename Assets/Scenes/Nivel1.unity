@@ -256,9 +256,9 @@ RectTransform:
   - {fileID: 1419148190}
   m_Father: {fileID: 1986476891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 688, y: -416}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -174, y: 76}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129043126
@@ -3579,6 +3579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69b8febfe8e4e849859aff850f1a94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movimiento
+  playerInputActionAsset: {fileID: -944628639613478452, guid: b4cbf27a35d4e014d9048ef097309c5c, type: 3}
   moveSpeed: 5
   dashText: {fileID: 1929460441}
   dashSpeed: 16
