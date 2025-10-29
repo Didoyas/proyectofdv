@@ -11,6 +11,11 @@ public class VidaPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+    
+    public void RecibirDaño(int cantidad)
+    {
         
     }
 }

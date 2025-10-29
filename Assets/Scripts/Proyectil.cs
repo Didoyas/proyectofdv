@@ -33,6 +33,15 @@ public class Proyectil : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(ignoreTags[i]) && other.CompareTag(ignoreTags[i])) return;
         }
+
+        IRecibeImpactoRetroceso recibeImpactoRetroceso = other.GetComponent<IRecibeImpactoRetroceso>();
+        if (recibeImpactoRetroceso != null)
+        {
+        recibeImpactoRetroceso.RecibeImpactoRetroceso(1, transform.position);
+        Destroy(gameObject);
+        return;
+        }
+
         // Aplicar impacto al objeto que colisiona
         IRecibeImpacto recibeImpacto = other.GetComponent<IRecibeImpacto>();
         if (recibeImpacto != null)
