@@ -13,8 +13,13 @@ public class VidaPlayer : MonoBehaviour
     {
 
     }
-    
+
     public void RecibirDaño(int cantidad)
+    {
+
+    }
+    
+    public void push()
     {
         
     }
