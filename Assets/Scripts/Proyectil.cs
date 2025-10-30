@@ -83,31 +83,34 @@ public class Proyectil : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
+{
+    foreach (string tag in ignoreTags)
     {
-        // Evitar colisión con objetos ignorados
-        foreach (string tag in ignoreTags)
-        {
-            if (other.CompareTag(tag))
-                return;
-        }
+        if (other.CompareTag(tag))
+            return;
+    }
 
-        // 🔹 Si la bala es del enemigo, daña al jugador
-        if (esDeEnemigo && other.CompareTag("Player"))
+    if (esDeEnemigo && other.CompareTag("Player"))
         {
             VidaPlayer vida = other.GetComponent<VidaPlayer>();
             if (vida != null)
             {
-                vida.RecibirDaño(1); // o usa tu variable daño si la tienes
+                vida.RecibirDaño(1);
             }
             Destroy(gameObject);
+            return;
         }
 
-        // 🔹 Si la bala es del jugador, daña al enemigo (si en el futuro agregas VidaEnemigo)
-        if (!esDeEnemigo && other.CompareTag("Enemy"))
+    if (!esDeEnemigo && other.CompareTag("Enemigo"))
+    {
+        IRecibeImpacto recibeImpacto = other.GetComponent<IRecibeImpacto>();
+        if (recibeImpacto != null)
         {
-            // ejemplo futuro:
-            // other.GetComponent<VidaEnemigo>()?.RecibirDaño(1);
-            Destroy(gameObject);
+            recibeImpacto.RecibeImpacto(1);
         }
+        Destroy(gameObject);
+        return;
     }
+    Destroy(gameObject);
+}
 }
