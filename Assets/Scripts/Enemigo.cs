@@ -5,6 +5,8 @@ public class Enemigo : MonoBehaviour, IRecibeImpacto
 
     public int vida = 1;
 
+    public int daño = 1;                 // Daño al jugador
+
     [SerializeField]
     private GameObject proyectilPrefab;
     [SerializeField]
@@ -14,7 +16,6 @@ public class Enemigo : MonoBehaviour, IRecibeImpacto
     private float fireCooldownTimer = 0f;
     [SerializeField]
     private float sightRange = 15f;
-
     private Transform target;
 
     void Awake()
@@ -92,5 +93,23 @@ public class Enemigo : MonoBehaviour, IRecibeImpacto
         proyectilScript.targetVector = direction;
         proyectilScript.ignoreTags = new string[] { "Enemigo" }; // Ignore collisions with enemies
         proyectilScript.speed = proyectilSpeed;
+
+        proyectilScript.esDeEnemigo = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            VidaPlayer vidaActual = other.GetComponent<VidaPlayer>();
+
+            if (vidaActual != null)
+            {
+                vidaActual.RecibirDaño(daño);
+            }
+        }
+        
+    }
+
 }
+

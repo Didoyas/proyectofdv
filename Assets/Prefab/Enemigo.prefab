@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8345298671572365699}
   - component: {fileID: -3975468150005279849}
   - component: {fileID: 3484075127230111038}
+  - component: {fileID: 5847508717495706122}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Enemigo
@@ -152,12 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   vida: 1
+  "da\xF1o": 1
   proyectilPrefab: {fileID: 8399312588273230862, guid: 6e777d765626d504e906e1ff35d2a398, type: 3}
-  fireInterval: 0.5
+  fireCooldown: 1
+  proyectilSpeed: 5
   sightRange: 15
-  lineOfSightBlockers:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!50 &3484075127230111038
 Rigidbody2D:
   serializedVersion: 5
@@ -185,3 +185,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5847508717495706122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927652812695095320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51faa778646981941a41e3f8d49832f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prueba

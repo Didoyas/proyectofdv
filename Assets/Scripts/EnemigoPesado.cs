@@ -9,15 +9,15 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
 
     public float rangoAtaque = 1f;        // Distancia de ataque cuerpo a cuerpo
     public int vida = 5;
-    public int daño = 2;                 // Daño al jugador
+    public int daño = 1;                 // Daño al jugador
     public float tiempoEntreAtaques = 2f; // Enfriamiento entre ataques
-
     private Transform target;           // Referencia al jugador
     private float tiempoUltimoAtaque = 0f;
 
     private Vector2 posicionInicial; // Posición donde empezó el enemigo
-
     private float distanciaRetroceso = 1f; 
+
+    //public Vector3 posicionInicialEnemigo = new Vector3(-3f, 0f, 0f);
 
     
 
@@ -91,10 +91,10 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
         Debug.Log("El enemigo pesado ataca al jugador!");
 
         // Buscar componente de salud en el jugador
-        VidaPlayer saludJugador = target.GetComponent<VidaPlayer>();
-        if (saludJugador != null)
+        VidaPlayer vidaActual = target.GetComponent<VidaPlayer>();
+        if (vidaActual != null)
         {
-            saludJugador.RecibirDaño(daño);
+            vidaActual.RecibirDaño(daño);
         }
     }
 
@@ -113,5 +113,7 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
             Destroy(gameObject);
         }
     }
+
+
     
 }

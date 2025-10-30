@@ -106,5 +106,6 @@ MonoBehaviour:
   velocidad: 2
   rangoDeteccion: 10
   rangoAtaque: 2
-  "da\xF1o": 0
+  vida: 5
+  "da\xF1o": 1
   tiempoEntreAtaques: 2

@@ -1,10 +1,12 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
 
     public float speed = 10f; // velocidad base del proyectil
     public float maxLifeTime = 3f; // tiempo de vida del proyectil 
+
+    public int daño = 1;                 // Daño al jugador
     public Vector2 targetVector;
     [SerializeField]
     private string[] _ignoreTags = new string[0]; // Tags a ignorar por el collider del proyectil
@@ -13,6 +15,7 @@ public class Proyectil : MonoBehaviour
         get { return _ignoreTags; }
         set { _ignoreTags = value ?? new string[0]; }
     }
+    public bool esDeJugador = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,9 +40,9 @@ public class Proyectil : MonoBehaviour
         IRecibeImpactoRetroceso recibeImpactoRetroceso = other.GetComponent<IRecibeImpactoRetroceso>();
         if (recibeImpactoRetroceso != null)
         {
-        recibeImpactoRetroceso.RecibeImpactoRetroceso(1, transform.position);
-        Destroy(gameObject);
-        return;
+            recibeImpactoRetroceso.RecibeImpactoRetroceso(1, transform.position);
+            Destroy(gameObject);
+            return;
         }
 
         // Aplicar impacto al objeto que colisiona
@@ -48,6 +51,63 @@ public class Proyectil : MonoBehaviour
         {
             recibeImpacto.RecibeImpacto(1);
         }
+
+        if (other.CompareTag("Player"))
+        {
+            VidaPlayer vidaActual = other.GetComponent<VidaPlayer>();
+
+            if (vidaActual != null)
+            {
+                vidaActual.RecibirDaño(daño);
+            }
+        }
+
         Destroy(gameObject);
+    }
+    
+}*/
+
+
+using UnityEngine;
+
+public class Proyectil : MonoBehaviour
+{
+    public float speed = 5f;
+    public Vector2 targetVector;
+    public string[] ignoreTags;
+    public bool esDeEnemigo = false; // 🔹 para marcar si la bala es enemiga
+
+    private void Update()
+    {
+        transform.Translate(targetVector * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Evitar colisión con objetos ignorados
+        foreach (string tag in ignoreTags)
+        {
+            if (other.CompareTag(tag))
+                return;
+        }
+
+        // 🔹 Si la bala es del enemigo, daña al jugador
+        if (esDeEnemigo && other.CompareTag("Player"))
+        {
+            VidaPlayer vida = other.GetComponent<VidaPlayer>();
+            if (vida != null)
+            {
+                vida.RecibirDaño(1); // o usa tu variable daño si la tienes
+            }
+            Destroy(gameObject);
+        }
+
+        // 🔹 Si la bala es del jugador, daña al enemigo (si en el futuro agregas VidaEnemigo)
+        if (!esDeEnemigo && other.CompareTag("Enemy"))
+        {
+            // ejemplo futuro:
+            // other.GetComponent<VidaEnemigo>()?.RecibirDaño(1);
+            Destroy(gameObject);
+        }
     }
 }
