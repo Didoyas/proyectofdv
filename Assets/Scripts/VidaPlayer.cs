@@ -4,7 +4,7 @@ using System.Collections;
 public class VidaPlayer : MonoBehaviour
 {
 
-    
+
     public int vidaMaxima = 3;
     public int vidaActual;
     public float invulnerabilidadTiempo = 1f;       // inmunidad despues de reaparecer
@@ -12,12 +12,12 @@ public class VidaPlayer : MonoBehaviour
 
     public Vector3 posicionRespawn = new Vector3(-7f, -1f, 0f);
 
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         vidaActual = vidaMaxima;
-        
+
     }
 
     // Update is called once per frame
@@ -44,13 +44,18 @@ public class VidaPlayer : MonoBehaviour
     }
 
 
-    IEnumerator HacerInvulnerable()
+    public IEnumerator HacerInvulnerable()
+    {
+        yield return HacerInvulnerable(invulnerabilidadTiempo);
+    }
+
+    public IEnumerator HacerInvulnerable(float duracion)
     {
         esInvulnerable = true;
-        yield return new WaitForSeconds(invulnerabilidadTiempo);
+        yield return new WaitForSeconds(duracion);
         esInvulnerable = false;
     }
-    
+
     void Morir()
     {
         transform.position = posicionRespawn;
@@ -58,6 +63,6 @@ public class VidaPlayer : MonoBehaviour
     }
     public void push()
     {
-        
+
     }
 }
