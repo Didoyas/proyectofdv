@@ -10,6 +10,8 @@ public class VidaPlayer : MonoBehaviour
     public float invulnerabilidadTiempo = 1f;       // inmunidad despues de reaparecer
     private bool esInvulnerable = false;
 
+    public GameObject panelMuerte;
+
     public Vector3 posicionRespawn = new Vector3(-7f, -1f, 0f);
 
     
@@ -53,8 +55,14 @@ public class VidaPlayer : MonoBehaviour
     
     void Morir()
     {
-        transform.position = posicionRespawn;
-        vidaActual = vidaMaxima;
+        
+        if (panelMuerte != null)
+        {
+            panelMuerte.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
+        gameObject.SetActive(false);
     }
     public void push()
     {
