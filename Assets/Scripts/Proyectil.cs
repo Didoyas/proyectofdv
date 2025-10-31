@@ -102,7 +102,16 @@ public class Proyectil : MonoBehaviour
         }
 
     if (!esDeEnemigo && other.CompareTag("Enemigo"))
-    {
+        {
+        
+        IRecibeImpactoRetroceso recibeImpactoRetroceso = other.GetComponent<IRecibeImpactoRetroceso>();
+        if (recibeImpactoRetroceso != null)
+        {
+            recibeImpactoRetroceso.RecibeImpactoRetroceso(1, transform.position);
+            Destroy(gameObject);
+            return;
+        }
+
         IRecibeImpacto recibeImpacto = other.GetComponent<IRecibeImpacto>();
         if (recibeImpacto != null)
         {
