@@ -35,20 +35,61 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      - name: Summary
+      - name: Summarize test results
         if: always()
         run: |
-          RESULTS_XML=$(find artifacts -name "*.xml" -type f | head -n 1 || true)
-          if [ -z "$RESULTS_XML" ]; then
-            echo "No test results XML found (likely 0 tests discovered)."
-            exit 1
-          fi
-          echo "Results file: $RESULTS_XML"
-          # Totals
-          grep -oP 'test-run[^>]*\b(total|passed|failed|inconclusive|skipped)="\K[0-9]+' "$RESULTS_XML" \
-            | awk 'BEGIN{labels[0]="total";labels[1]="passed";labels[2]="failed";labels[3]="inconclusive";labels[4]="skipped"} {print labels[NR-1]": "$0}'
-          echo "---- Test names ----"
-          grep -oP '<test-case[^>]* name="\K[^"]+' "$RESULTS_XML" | sed -n '1,50p'
+          python3 - <<'PY'
+          import glob, xml.etree.ElementTree as ET
+      
+          # Find the first NUnit XML in artifacts
+          files = glob.glob('artifacts/**/*.xml', recursive=True) + glob.glob('artifacts/*.xml')
+          if not files:
+              print("No test results XML found.")
+              exit(1)
+          xml_path = files[0]
+          root = ET.parse(xml_path).getroot()
+      
+          print(f"Results file: {xml_path}")
+          print(f"Total: {root.get('total')} | Passed: {root.get('passed')} | Failed: {root.get('failed')} | Skipped: {root.get('skipped')}")
+          print("="*60)
+      
+          # Group tests by class
+          classes = {}
+          for tc in root.iter('test-case'):
+              cls = tc.get('classname') or 'UnknownClass'
+              result = tc.get('result')
+              name = tc.get('name')
+              msg = ''
+              if result == 'Failed':
+                  failure = tc.find('failure')
+                  if failure is not None:
+                      msg = failure.findtext('message') or ''
+              classes.setdefault(cls, []).append((name, result, msg))
+      
+          # Print summary
+          for cls, tests in classes.items():
+              print(f"\nClass: {cls}")
+              for name, result, msg in tests:
+                  if result == 'Passed':
+                      print(f"  ✔ {name}")
+                  else:
+                      print(f"  ✖ {name} — {msg.strip()}")
+          PY
+
+      #- name: Summary
+      #  if: always()
+      #  run: |
+      #    RESULTS_XML=$(find artifacts -name "*.xml" -type f | head -n 1 || true)
+      #    if [ -z "$RESULTS_XML" ]; then
+      #      echo "No test results XML found (likely 0 tests discovered)."
+      #      exit 1
+      #    fi
+      #    echo "Results file: $RESULTS_XML"
+      #    # Totals
+      #    grep -oP 'test-run[^>]*\b(total|passed|failed|inconclusive|skipped)="\K[0-9]+' "$RESULTS_XML" \
+      #      | awk 'BEGIN{labels[0]="total";labels[1]="passed";labels[2]="failed";labels[3]="inconclusive";labels[4]="skipped"} {print labels[NR-1]": "$0}'
+      #    echo "---- Test names ----"
+      #    grep -oP '<test-case[^>]* name="\K[^"]+' "$RESULTS_XML" | sed -n '1,50p'
           
       - name: Logs
         uses: actions/upload-artifact@v4
