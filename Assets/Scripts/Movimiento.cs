@@ -20,8 +20,6 @@ public class Movimiento : MonoBehaviour
     private float dashSpeed = 16f;
     [SerializeField]
     private float dashDuration = 0.2f;
-    [SerializeField]
-    private float dashCooldown = 1f;
     private Vector2 dashDirection;
 
     private float _dashTimer;
@@ -67,6 +65,11 @@ public class Movimiento : MonoBehaviour
         {
             dashDirection = movement;
             dashTimer = dashDuration;
+            VidaPlayer vidaPlayer = GetComponent<VidaPlayer>();
+            if (vidaPlayer != null)
+            {
+                StartCoroutine(vidaPlayer.HacerInvulnerable(dashDuration));
+            }
         }
     }
 
@@ -86,7 +89,7 @@ public class Movimiento : MonoBehaviour
             dashTimer -= Time.fixedDeltaTime;
             if (dashTimer <= 0f)
             {
-                cooldownTimer = dashCooldown;
+                cooldownTimer = dashDuration;
             }
         }
         else
