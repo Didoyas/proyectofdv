@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.InputSystem; 
 
 public class PlayerDisparo : MonoBehaviour
 {
@@ -32,20 +33,29 @@ public class PlayerDisparo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (puedeDisparar && Input.GetMouseButtonDown(0) && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
+        if (puedeDisparar && Mouse.current.leftButton.wasPressedThisFrame && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
         {
-            GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity); //se instancia proyectil 
 
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //posicion del puntero del raton 
-            Vector2 direction = (mouseWorldPos - baston.transform.position).normalized; //diferencia entre la camara y puntero del raton 
-            direction.Normalize(); // normaliza 
+            Disparar();
 
-            Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
-            proyectilScript.targetVector = direction; // direccion del proyectil 
-            proyectilScript.ignoreTags = new string[] { "Player" }; // ignorar colisiones con el jugador
-
-            cargasActuales--; //se reduce una carga al disparar
         }
+    }
+
+    void Disparar()
+    {
+
+        GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity); //se instancia proyectil 
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //posicion del puntero del raton 
+        Vector2 direction = (mouseWorldPos - baston.transform.position).normalized; //diferencia entre la camara y puntero del raton 
+        direction.Normalize(); // normaliza 
+
+        Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
+        proyectilScript.targetVector = direction; // direccion del proyectil 
+        proyectilScript.ignoreTags = new string[] { "Player" }; // ignorar colisiones con el jugador
+
+        cargasActuales--; //se reduce una carga al disparar
+        
     }
 
     IEnumerator Recargar() //funcion de recarga de cargas 

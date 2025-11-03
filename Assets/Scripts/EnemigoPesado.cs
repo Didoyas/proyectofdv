@@ -17,7 +17,7 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
     private Vector2 posicionInicial; // Posición donde empezó el enemigo
     private float distanciaRetroceso = 1f; 
 
-    //public Vector3 posicionInicialEnemigo = new Vector3(-3f, 0f, 0f);
+    private bool puedeMoverse = true;      // Flag para controlar movimiento
 
     
 
@@ -51,27 +51,37 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
         // Si el jugador está dentro del rango de detección
         if (distancia <= rangoDeteccion)
         {
-            // Moverse hacia el jugador
-            MoverHacia(target.position);
+
+            if(puedeMoverse){
+                // Moverse hacia el jugador
+                MoverHacia(target.position);
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
 
             // Atacar si está suficientemente cerca
             if (distancia <= rangoAtaque && Time.time >= tiempoUltimoAtaque + tiempoEntreAtaques)
             {
-                Atacar();
-                tiempoUltimoAtaque = Time.time;
+                StartCoroutine(AtacarConRetraso());
             }
         }
         else
         {
-            // Regresar a la posición inicial
-            float distanciaAlInicio = Vector2.Distance(rb.position, posicionInicial);
-            if (distanciaAlInicio > 0.05f) //rango para no estar buscando el inicio en bucle 
-            {
-                MoverHacia(posicionInicial);
-            }
-            else
-            {
-                rb.position = posicionInicial; // asegurar que quede exacto
+            if(puedeMoverse){
+
+                // Regresar a la posición inicial
+                float distanciaAlInicio = Vector2.Distance(rb.position, posicionInicial);
+                    if (distanciaAlInicio > 0.05f) //rango para no estar buscando el inicio en bucle 
+                    {
+                        MoverHacia(posicionInicial);
+                    }
+                    else
+                    {
+                        rb.position = posicionInicial; // asegurar que quede exacto
+                        rb.linearVelocity = Vector2.zero;
+                    }
             }
         }
         
@@ -86,9 +96,24 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
     }
 
 
+    private System.Collections.IEnumerator AtacarConRetraso()
+    {
+        puedeMoverse = false; // Detener movimiento
+        rb.linearVelocity = Vector2.zero;
+
+        Atacar(); // Ejecuta el ataque
+
+        tiempoUltimoAtaque = Time.time;
+
+        // Esperar antes de volver a moverse
+        yield return new WaitForSeconds(tiempoEntreAtaques);
+
+        puedeMoverse = true; // Puede volver a moverse
+    }
+
     void Atacar()
     {
-        Debug.Log("El enemigo pesado ataca al jugador!");
+        Debug.Log("El enemigo pesado ataca al jugador");
 
         // Buscar componente de salud en el jugador
         VidaPlayer vidaActual = target.GetComponent<VidaPlayer>();
@@ -97,6 +122,7 @@ public class EnemigoPesado : MonoBehaviour, IRecibeImpactoRetroceso
             vidaActual.RecibirDaño(daño);
         }
     }
+
 
     public void RecibeImpactoRetroceso(int cantidadImpacto, Vector2 origenImpacto)
     {
