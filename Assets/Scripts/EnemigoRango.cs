@@ -11,18 +11,18 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
 
     // Mvement
     public float velocidad = 2f;
-    public float rangoAtaque = 10f;
+    public float rangoAtaque = 6f;
     public float distanciaMinima = 4f; // Si está más cerca, se aleja un poco
-    public float movimientoLateralIntensidad = 1f;
+    public float movimientoLateralIntensidad = 0.5f;
     public float movimientoLateralFrecuencia = 2f;
 
     // Shooting
     [SerializeField]
     private GameObject proyectilPrefab;
     [SerializeField]
-    private float fireCooldown = 1f;
+    private float fireCooldown = 0.5f;
     [SerializeField]
-    private float proyectilSpeed = 5f;
+    private float proyectilSpeed = 7.5f;
 
     // Modificacion
     private float fireCooldownTimer = 0f;
@@ -78,11 +78,11 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
 
         Vector2 destino = Vector2.zero;
 
-        if (distancia > rangoAtaque)
+       /* if (distancia > rangoAtaque)
         {
             destino = direccion; // Se acerca
         }
-        else if (distancia < distanciaMinima)
+        else*/ if (distancia < distanciaMinima)
         {
             destino = -direccion; // Se aleja
         }

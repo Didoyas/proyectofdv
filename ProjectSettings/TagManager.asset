@@ -7,6 +7,8 @@ TagManager:
   - Tilemap
   - Enemigo
   - Proyectil
+  - Undefined
+  - Caja
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class PlayerDisparo : MonoBehaviour
 
     public Text cargasText; //texto UI de las cargas actuales
     public static bool puedeDisparar = true;
-    public int maxCargas = 20; //maximo de cargas         
+    public int maxCargas = 5; //maximo de cargas         
     private int _cargasActuales; //cargas actuales
     private int cargasActuales
     {
@@ -21,7 +21,7 @@ public class PlayerDisparo : MonoBehaviour
             ActualizarUI();
         }
     }
-    public float recargaTiempo = 3f; //tiempo de recarga de las cargas
+    public float recargaTiempo = 1f; //tiempo de recarga de las cargas
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,7 +66,7 @@ public class PlayerDisparo : MonoBehaviour
 
             if (cargasActuales < maxCargas) // si las cargas actuuales son menores a las maximas
             {
-                cargasActuales = cargasActuales + 5; //se recuperan 5 cargas 
+                cargasActuales = cargasActuales + 1; //se recuperan 1 cargas 
                 if (cargasActuales > maxCargas) cargasActuales = maxCargas;
             }
         }

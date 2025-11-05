@@ -4,13 +4,13 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
 {
 
     private Rigidbody2D rb;
-    public float velocidad = 2f;          // Velocidad lenta
-    public float rangoDeteccion = 8f;    // Distancia máxima para detectar al jugador
+    public float velocidad = 20f;          // Velocidad lenta
+    public float rangoDeteccion = 7f;    // Distancia máxima para detectar al jugador
 
     public float rangoAtaque = 1f;        // Distancia de ataque cuerpo a cuerpo
-    public int vida = 5;
+    public int vida = 10;
     public int daño = 1;                 // Daño al jugador
-    public float tiempoEntreAtaques = 2f; // Enfriamiento entre ataques
+    public float tiempoEntreAtaques = 1f; // Enfriamiento entre ataques
     public float tiempoCargaAtaque = 0.5f; // Tiempo antes de golpear
 
     private Transform target;           // Referencia al jugador
@@ -21,8 +21,8 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
     private bool puedeMoverse = true;      // Flag para controlar movimiento
     private bool estaAtacando = false;  // Previene múltiples ataques solapados
 
-    public float fuerzaRetroceso = 0.2f;   // reemplaza distanciaRetroceso
-    public float tiempoStun = 0.4f;      // tiempo que queda inmóvil tras recibir golpe
+    public float fuerzaRetroceso = 500f;   // reemplaza distanciaRetroceso
+    public float tiempoStun = 0.1f;      // tiempo que queda inmóvil tras recibir golpe
 
     void Awake()
     {

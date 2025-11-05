@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8927652812695095320
+--- !u!1 &8150879666162601330
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1532722993770485766}
-  - component: {fileID: 9138238109509282158}
-  - component: {fileID: -8345298671572365699}
-  - component: {fileID: -3975468150005279849}
-  - component: {fileID: 3484075127230111038}
+  - component: {fileID: 950244737647643549}
+  - component: {fileID: 8738005422962854885}
+  - component: {fileID: -3531871004263015608}
+  - component: {fileID: -6564106927717078838}
+  - component: {fileID: -9195153006843777698}
   m_Layer: 0
-  m_Name: EnemigoLigero
-  m_TagString: Enemigo
+  m_Name: ProyectilEnemigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1532722993770485766
+--- !u!4 &950244737647643549
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927652812695095320}
+  m_GameObject: {fileID: 8150879666162601330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.807646, y: 0.64257497, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: -25.315817, y: 10.162713, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9138238109509282158
+--- !u!212 &8738005422962854885
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927652812695095320}
+  m_GameObject: {fileID: 8150879666162601330}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2208703988740019828, guid: 02ddbea54468da444b8b85ce91ea0548, type: 3}
-  m_Color: {r: 0.91317546, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 2208703988740019828, guid: b28f718a4b7e9214fa2bc5518bb69dc1, type: 3}
+  m_Color: {r: 0.35222208, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,13 +93,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-8345298671572365699
+--- !u!114 &-3531871004263015608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150879666162601330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd185fd586757b468dcdaf96b5da441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Proyectil
+  speed: 5
+  targetVector: {x: 0, y: 0}
+  ignoreTags: []
+  esDeEnemigo: 0
+--- !u!61 &-6564106927717078838
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927652812695095320}
+  m_GameObject: {fileID: 8150879666162601330}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -123,7 +139,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -139,45 +155,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.04, y: 0.04}
   m_EdgeRadius: 0
---- !u!114 &-3975468150005279849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927652812695095320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b3d27e010b5a34b9bd4e577befe1b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemigoRango
-  vida: 1
-  "da\xF1o": 1
-  velocidad: 2
-  rangoAtaque: 8
-  distanciaMinima: 4
-  movimientoLateralIntensidad: 0.5
-  movimientoLateralFrecuencia: 2
-  proyectilPrefab: {fileID: 8150879666162601330, guid: 24de82622a9b05943868e0c82dfa045f, type: 3}
-  fireCooldown: 0.5
-  proyectilSpeed: 7.5
-  fuerzaRetroceso: 0.2
---- !u!50 &3484075127230111038
+--- !u!50 &-9195153006843777698
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8927652812695095320}
-  m_BodyType: 0
+  m_GameObject: {fileID: 8150879666162601330}
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -188,4 +181,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0

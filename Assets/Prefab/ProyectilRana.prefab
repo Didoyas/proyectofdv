@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3612159788065751527}
   - component: {fileID: -3148635994151604646}
   m_Layer: 0
-  m_Name: Proyectil
+  m_Name: ProyectilRana
   m_TagString: Proyectil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

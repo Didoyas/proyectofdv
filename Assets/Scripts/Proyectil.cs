@@ -101,7 +101,7 @@ public class Proyectil : MonoBehaviour
             return;
         }
 
-    if (!esDeEnemigo && other.CompareTag("Enemigo"))
+    if (!esDeEnemigo && (other.CompareTag("Enemigo") || other.CompareTag("Caja")))
         {
         
         IRecibeImpactoRetroceso recibeImpactoRetroceso = other.GetComponent<IRecibeImpactoRetroceso>();
