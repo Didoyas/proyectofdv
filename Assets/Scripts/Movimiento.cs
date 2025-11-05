@@ -13,6 +13,7 @@ public class Movimiento : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5f;
     private Rigidbody2D rb;
+
     [SerializeField]
     private Text dashText;
 
@@ -108,4 +109,5 @@ public class Movimiento : MonoBehaviour
             dashText.color = newColor;
         }
     }
+
 }

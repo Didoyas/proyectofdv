@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3975468150005279849}
   - component: {fileID: 3484075127230111038}
   m_Layer: 0
-  m_Name: Enemigo
+  m_Name: EnemigoLigero
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,10 +153,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   vida: 1
   "da\xF1o": 1
+  velocidad: 2
+  rangoAtaque: 10
+  distanciaMinima: 4
+  movimientoLateralIntensidad: 1
+  movimientoLateralFrecuencia: 2
   proyectilPrefab: {fileID: 8399312588273230862, guid: 6e777d765626d504e906e1ff35d2a398, type: 3}
   fireCooldown: 1
   proyectilSpeed: 5
-  sightRange: 15
 --- !u!50 &3484075127230111038
 Rigidbody2D:
   serializedVersion: 5
@@ -183,4 +187,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
