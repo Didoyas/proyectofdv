@@ -110,10 +110,10 @@ MonoBehaviour:
   rangoAtaque: 1
   vida: 10
   "da\xF1o": 1
-  tiempoEntreAtaques: 1
+  tiempoEntreAtaques: 2
   tiempoCargaAtaque: 0.5
-  fuerzaRetroceso: 500
-  tiempoStun: 0.1
+  fuerzaRetroceso: 0
+  tiempoStun: 0.5
 --- !u!50 &-2023392368211035864
 Rigidbody2D:
   serializedVersion: 5

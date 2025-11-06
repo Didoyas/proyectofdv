@@ -11,7 +11,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
 
     // Mvement
     public float velocidad = 2f;
-    public float rangoAtaque = 6f;
+    public float rangoAtaque = 7f;
     public float distanciaMinima = 4f; // Si está más cerca, se aleja un poco
     public float movimientoLateralIntensidad = 0.5f;
     public float movimientoLateralFrecuencia = 2f;
@@ -22,7 +22,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
     [SerializeField]
     private float fireCooldown = 0.5f;
     [SerializeField]
-    private float proyectilSpeed = 7.5f;
+    private float proyectilSpeed = 7f;
 
     // Modificacion
     private float fireCooldownTimer = 0f;
@@ -158,6 +158,16 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
     // Ya lo preañado por si hacemos que tenga más vida
     public void RecibeImpactoRetroceso(int cantidadImpacto, Vector2 origenImpacto)
     {
+
+        if (!target) return;
+
+        //Si el enemigo esta feura del rango del jugador no recibe daño (evitar balas perdidas maten enemigos)
+        float distanciaAlJugador = Vector2.Distance(transform.position, target.position);
+        if (distanciaAlJugador > rangoAtaque)
+        {
+            return;
+        }
+
         vida -= cantidadImpacto;
 
         Vector2 direccionRetroceso = ((Vector2)rb.position - origenImpacto).normalized;

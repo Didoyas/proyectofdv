@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
+public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 {
-
     private Rigidbody2D rb;
-    public float velocidad = 20f;          // Velocidad lenta
+    public float velocidad = 28f;          // Velocidad lenta
     public float rangoDeteccion = 7f;    // Distancia máxima para detectar al jugador
 
     public float rangoAtaque = 1f;        // Distancia de ataque cuerpo a cuerpo
-    public int vida = 10;
+    public int vida = 2;
     public int daño = 1;                 // Daño al jugador
-    public float tiempoEntreAtaques = 2f; // Enfriamiento entre ataques
-    public float tiempoCargaAtaque = 0.5f; // Tiempo antes de golpear
+    public float tiempoEntreAtaques = 0.5f; // Enfriamiento entre ataques
+    public float tiempoCargaAtaque = 0f; // Tiempo antes de golpear
 
     private Transform target;           // Referencia al jugador
     private float tiempoUltimoAtaque = 0f;
@@ -21,8 +20,8 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
     private bool puedeMoverse = true;      // Flag para controlar movimiento
     private bool estaAtacando = false;  // Previene múltiples ataques solapados
 
-    public float fuerzaRetroceso = 0f;   // reemplaza distanciaRetroceso
-    public float tiempoStun = 0.5f;      // tiempo que queda inmóvil tras recibir golpe
+    public float fuerzaRetroceso = 400f;   // reemplaza distanciaRetroceso
+    public float tiempoStun = 0f;      // tiempo que queda inmóvil tras recibir golpe
 
     void Awake()
     {
@@ -93,6 +92,7 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
         puedeMoverse = false;
         rb.linearVelocity = Vector2.zero;
 
+        
         yield return new WaitForSeconds(tiempoCargaAtaque);
 
         float distanciaActual = Vector2.Distance(transform.position, target.position);
@@ -148,5 +148,4 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
         yield return new WaitForSeconds(tiempoStun);
         puedeMoverse = true;
     }
-    
 }
