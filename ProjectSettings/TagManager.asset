@@ -9,6 +9,7 @@ TagManager:
   - Proyectil
   - Undefined
   - Caja
+  - Moneda
   layers:
   - Default
   - TransparentFX

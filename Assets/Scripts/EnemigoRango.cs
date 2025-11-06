@@ -17,12 +17,10 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
     public float movimientoLateralFrecuencia = 2f;
 
     // Shooting
-    [SerializeField]
-    private GameObject proyectilPrefab;
-    [SerializeField]
-    private float fireCooldown = 0.5f;
-    [SerializeField]
-    private float proyectilSpeed = 7f;
+    [SerializeField] private GameObject proyectilPrefab;
+    [SerializeField] private GameObject monedaPrefab;
+    [SerializeField] private float fireCooldown = 0.5f;
+    [SerializeField] private float proyectilSpeed = 7f;
 
     // Modificacion
     private float fireCooldownTimer = 0f;
@@ -134,7 +132,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
         Vector2 direction = ((Vector2)(target.position - origin)).normalized;
         Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
         proyectilScript.targetVector = direction;
-        proyectilScript.ignoreTags = new string[] { "Enemigo", "Proyectil" }; // ignorar colisiones con enemigos o otros proyectiles
+        proyectilScript.ignoreTags = new string[] { "Enemigo", "Proyectil", "Moneda" }; // ignorar colisiones con enemigos o otros proyectiles
         proyectilScript.speed = proyectilSpeed;
 
         proyectilScript.esDeEnemigo = true;
@@ -177,6 +175,12 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy()
+    {
+        Vector3 origin = transform.position;
+        GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
     }
 }
 

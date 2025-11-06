@@ -75,7 +75,7 @@ public class Proyectil : MonoBehaviour
     public float speed = 5f;
     public Vector2 targetVector;
     public string[] ignoreTags;
-    public bool esDeEnemigo = false; // 🔹 para marcar si la bala es enemiga
+    public bool esDeEnemigo = false; // para marcar si la bala es enemiga
 
     private void Update()
     {

@@ -13,18 +13,17 @@ public class VidaPlayer : MonoBehaviour
 
     public Vector3 posicionRespawn = new Vector3(-7f, -1f, 0f);
 
-    [Header("UI de Vida")]
-    public Image imagenVidasUI;             // componentes images
+    [Header("UI de Vida")] public Image imagenVidasUI;             // componentes images
     public Sprite[] spritesVidas;           // lista de 4 pngs
     
 
-void Start()
+    void Start()
     {
         vidaActual = vidaMaxima;
         ActualizarVidasUI();            // llamo a funcion e imprimo 3vidas
     }
 
-void Update()
+    void Update()
     {
 
     }
