@@ -134,7 +134,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
         Vector2 direction = ((Vector2)(target.position - origin)).normalized;
         Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
         proyectilScript.targetVector = direction;
-        proyectilScript.ignoreTags = new string[] { "Enemigo" }; // Ignore collisions with enemies
+        proyectilScript.ignoreTags = new string[] { "Enemigo", "Proyectil" }; // ignorar colisiones con enemigos o otros proyectiles
         proyectilScript.speed = proyectilSpeed;
 
         proyectilScript.esDeEnemigo = true;
