@@ -8,7 +8,7 @@ public class Movimiento : MonoBehaviour
     private InputAction moveAction;
     private InputAction dashAction;
     private Rigidbody2D rb;
-    [SerializeField] private InputActionAsset playerInputActionAsset;
+    public InputActionAsset playerInputActionAsset;
     [SerializeField] private Text dashText;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 16f;
@@ -31,7 +31,7 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-    void Awake()
+    public void Awake()
     {
         playerActionMap = playerInputActionAsset.FindActionMap("Player");
         moveAction = playerActionMap.FindAction("Move");
