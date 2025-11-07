@@ -6,6 +6,14 @@ public class BotonReiniciar : MonoBehaviour
     // Función que se llama al presionar el botón de Reiniciar
     public void ReiniciarJuego()
     {
+
+        GameObject[] monedas = GameObject.FindGameObjectsWithTag("Moneda");
+
+        foreach (GameObject moneda in monedas)
+        {
+            Destroy(moneda);
+        }
+
         // 1. Asegúrate de que el tiempo vuelva a ser normal
         Time.timeScale = 1f;
 

@@ -179,8 +179,12 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
 
     void OnDestroy()
     {
-        Vector3 origin = transform.position;
-        GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
+        // Evita crear monedas si la escena se está cerrando o recargando
+        if (gameObject.scene.isLoaded)
+        {
+            Vector3 origin = transform.position;
+            GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
+        }
     }
 }
 

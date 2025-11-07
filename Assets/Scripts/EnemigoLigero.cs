@@ -22,6 +22,7 @@ public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 
     public float fuerzaRetroceso = 400f;   // reemplaza distanciaRetroceso
     public float tiempoStun = 0f;      // tiempo que queda inmóvil tras recibir golpe
+    private GameObject monedaPrefab;
 
     void Awake()
     {
@@ -147,5 +148,15 @@ public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
         puedeMoverse = false;
         yield return new WaitForSeconds(tiempoStun);
         puedeMoverse = true;
+    }
+
+    void OnDestroy()
+    {
+        // Evita crear monedas si la escena se está cerrando o recargando
+        if (gameObject.scene.isLoaded)
+        {
+            Vector3 origin = transform.position;
+            GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
+        }
     }
 }
