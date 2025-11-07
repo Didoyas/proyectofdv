@@ -100,4 +100,8 @@ public class Movimiento : MonoBehaviour
         }
     }
 
+    //Empleado para Animacion
+    public Vector2 VelocidadActual => rb.linearVelocity;
+
+
 }
