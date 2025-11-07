@@ -16872,7 +16872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -796, y: 404}
+  m_AnchoredPosition: {x: -795, y: 370}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700779938
@@ -17948,8 +17948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -852, y: -936}
-  m_SizeDelta: {x: 1400, y: 1400}
+  m_AnchoredPosition: {x: -815, y: -911}
+  m_SizeDelta: {x: 1500, y: 1400}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1983823774
 MonoBehaviour:
@@ -17973,9 +17973,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "INSTRUCCIONES:\n\nMovimiento\tAWSD o Flechas del teclado \n\nDisparar\t\tClic
     izquierdo del rat\xF3n (el \t\t\t\t\tpersonaje dispara en la \t\t\t\t\tdirecci\xF3n
-    del puntero)\n\nDash\t\tMant\xE9n pulsada la Barra\t\t\t\t\tespaciadora mientras
-    te \n\t\t\tmueves (durante el dash \t\n\t\t\teres imnune a cualquier tipo \n\t\t\tde
-    proyectil)"
+    del puntero)\n\nDash\t\t\tMant\xE9n pulsada la Barra\t\t\t\t\tespaciadora mientras
+    te mueves \t\t\t(durante el dash eres imnune a \n\t\t\tcualquier tipo de proyectil)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
