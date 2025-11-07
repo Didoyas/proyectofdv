@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b64fe6dab0845a4ca09120098575a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoPesadoPrev
-  velocidad: 20
+  velocidad: 22
   rangoDeteccion: 7
   rangoAtaque: 1
   vida: 10
@@ -114,6 +114,7 @@ MonoBehaviour:
   tiempoCargaAtaque: 0.5
   fuerzaRetroceso: 0
   tiempoStun: 0.5
+  monedaPrefab: {fileID: 922991135985235719, guid: 1eaea38dadfcc6048a9ff0992ff6a5f6, type: 3}
 --- !u!50 &-2023392368211035864
 Rigidbody2D:
   serializedVersion: 5

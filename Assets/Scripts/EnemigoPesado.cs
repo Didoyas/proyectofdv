@@ -23,7 +23,8 @@ public class EnemigoPesadoPrev : MonoBehaviour, IRecibeImpactoRetroceso
 
     public float fuerzaRetroceso = 0f;   // reemplaza distanciaRetroceso
     public float tiempoStun = 0.5f;      // tiempo que queda inmóvil tras recibir golpe
-    private GameObject monedaPrefab;
+
+    public GameObject monedaPrefab;
 
     void Awake()
     {

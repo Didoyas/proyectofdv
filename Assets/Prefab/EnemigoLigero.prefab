@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoRango
   vida: 1
   "da\xF1o": 1
-  velocidad: 2
+  velocidad: 1.5
   rangoAtaque: 7
   distanciaMinima: 4
   movimientoLateralIntensidad: 0.5
@@ -161,7 +161,7 @@ MonoBehaviour:
   proyectilPrefab: {fileID: 8150879666162601330, guid: 24de82622a9b05943868e0c82dfa045f, type: 3}
   monedaPrefab: {fileID: 922991135985235719, guid: 1eaea38dadfcc6048a9ff0992ff6a5f6, type: 3}
   fireCooldown: 0.5
-  proyectilSpeed: 7
+  proyectilSpeed: 5
   fuerzaRetroceso: 0.2
 --- !u!50 &3484075127230111038
 Rigidbody2D:

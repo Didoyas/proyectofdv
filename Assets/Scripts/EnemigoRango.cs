@@ -10,7 +10,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
 
 
     // Mvement
-    public float velocidad = 2f;
+    public float velocidad = 1.5f;
     public float rangoAtaque = 7f;
     public float distanciaMinima = 4f; // Si está más cerca, se aleja un poco
     public float movimientoLateralIntensidad = 0.5f;
@@ -20,7 +20,7 @@ public class EnemigoRango : MonoBehaviour, IRecibeImpactoRetroceso
     [SerializeField] private GameObject proyectilPrefab;
     [SerializeField] private GameObject monedaPrefab;
     [SerializeField] private float fireCooldown = 0.5f;
-    [SerializeField] private float proyectilSpeed = 7f;
+    [SerializeField] private float proyectilSpeed = 5f;
 
     // Modificacion
     private float fireCooldownTimer = 0f;

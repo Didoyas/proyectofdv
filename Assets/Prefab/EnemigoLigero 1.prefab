@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3b7dea0c9f3e97478a82ac416301b43, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemigoLigero
-  velocidad: 28
+  m_EditorClassIdentifier: Scripts::EnemigoLigero
+  velocidad: 26
   rangoDeteccion: 7
   rangoAtaque: 1
   vida: 2
@@ -187,3 +187,4 @@ MonoBehaviour:
   tiempoCargaAtaque: 0
   fuerzaRetroceso: 400
   tiempoStun: 0
+  monedaPrefab: {fileID: 922991135985235719, guid: 1eaea38dadfcc6048a9ff0992ff6a5f6, type: 3}

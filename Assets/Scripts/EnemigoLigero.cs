@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 {
     private Rigidbody2D rb;
-    public float velocidad = 28f;          // Velocidad lenta
+    public float velocidad = 26f;          // Velocidad lenta
     public float rangoDeteccion = 7f;    // Distancia máxima para detectar al jugador
 
     public float rangoAtaque = 1f;        // Distancia de ataque cuerpo a cuerpo
@@ -22,7 +22,8 @@ public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 
     public float fuerzaRetroceso = 400f;   // reemplaza distanciaRetroceso
     public float tiempoStun = 0f;      // tiempo que queda inmóvil tras recibir golpe
-    private GameObject monedaPrefab;
+
+    public GameObject monedaPrefab;
 
     void Awake()
     {
