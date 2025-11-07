@@ -17,7 +17,7 @@ public class PlayerDisparo : MonoBehaviour
         get { return _cargasActuales; }
         set
         {
-            _cargasActuales = value;
+            _cargasActuales = Mathf.Min(Mathf.Max(value, 0), maxCargas);
             ActualizarUI();
         }
     }
@@ -66,8 +66,7 @@ public class PlayerDisparo : MonoBehaviour
 
             if (cargasActuales < maxCargas) // si las cargas actuuales son menores a las maximas
             {
-                cargasActuales = cargasActuales + 1; //se recuperan 1 cargas 
-                if (cargasActuales > maxCargas) cargasActuales = maxCargas;
+                cargasActuales++;
             }
         }
     }

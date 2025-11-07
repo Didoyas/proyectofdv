@@ -52,7 +52,7 @@ public class VidaPlayer : MonoBehaviour
         }
     }
 
-void ActualizarVidasUI()
+    void ActualizarVidasUI()
     {
         if (imagenVidasUI != null && spritesVidas.Length == 4)
         {
@@ -77,8 +77,6 @@ void ActualizarVidasUI()
         }
     }
 
-
-
     public IEnumerator HacerInvulnerable()
     {
         yield return HacerInvulnerable(invulnerabilidadTiempo);
@@ -93,7 +91,7 @@ void ActualizarVidasUI()
 
     void Morir()
     {
-        
+
         if (panelMuerte != null)
         {
             panelMuerte.SetActive(true);
@@ -102,6 +100,7 @@ void ActualizarVidasUI()
         Time.timeScale = 0f;
         gameObject.SetActive(false);
     }
+    
     public void push()
     {
 

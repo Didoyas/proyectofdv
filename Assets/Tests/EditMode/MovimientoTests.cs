@@ -3,8 +3,9 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
+using System.Reflection;
 
-public class TestSimple
+public class MovimientoTests
 {
     private GameObject playerObj;
     private Movimiento movimiento;
@@ -36,8 +37,8 @@ public class TestSimple
     [Test]
     public void Awake_EncuentraInputActions()
     {
-        var moveField = typeof(Movimiento).GetField("moveAction", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        var dashField = typeof(Movimiento).GetField("dashAction", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        var moveField = typeof(Movimiento).GetField("moveAction", BindingFlags.NonPublic | BindingFlags.Instance);
+        var dashField = typeof(Movimiento).GetField("dashAction", BindingFlags.NonPublic | BindingFlags.Instance);
 
         var moveAction = moveField.GetValue(movimiento) as InputAction;
         var dashAction = dashField.GetValue(movimiento) as InputAction;
@@ -46,7 +47,24 @@ public class TestSimple
         Assert.NotNull(dashAction, "Dash InputAction no es null tras Awake()");
     }
 
-    // A Test behaves as an ordinary method
+    // Verifica si las variables dashTimer y cooldownTimer son positivas incluso cuando se les forza un valor negativo
+    [Test]
+    public void DashYCooldown_SiemprePositivos()
+    {
+        var dashTimerField = typeof(Movimiento).GetField("_dashTimer", BindingFlags.NonPublic | BindingFlags.Instance);
+        var cooldownTimerField = typeof(Movimiento).GetField("_cooldownTimer", BindingFlags.NonPublic | BindingFlags.Instance);
+        
+        dashTimerField.SetValue(movimiento, -5f);
+        cooldownTimerField.SetValue(movimiento, -3f);
+        
+        movimiento.GetType().GetProperty("dashTimer", BindingFlags.NonPublic | BindingFlags.Instance)?.SetValue(movimiento, -5f);
+        movimiento.GetType().GetProperty("cooldownTimer", BindingFlags.NonPublic | BindingFlags.Instance)?.SetValue(movimiento, -3f);
+
+        Assert.That((float)dashTimerField.GetValue(movimiento), Is.GreaterThanOrEqualTo(0f), "dashTimer siempre >= 0");
+        Assert.That((float)cooldownTimerField.GetValue(movimiento), Is.GreaterThanOrEqualTo(0f), "cooldownTimer (dash) siempre >= 0");
+    }
+
+    /*// A Test behaves as an ordinary method
     [Test]
     public void TestSimpleSimplePasses()
     {
@@ -55,13 +73,13 @@ public class TestSimple
         Assert.AreEqual(4, r, "2 + 2 igual a 4");
     }
 
-    /*[Test]
+    [Test]
     public void TestSimpleFails()
     {
         // Use the Assert class to test conditions
         int r = 2 + 1;
         Assert.AreEqual(4, r, "2 + 1 not igual a 4");
-    }*/
+    }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
@@ -71,5 +89,5 @@ public class TestSimple
         // Use the Assert class to test conditions.
         // Use yield to skip a frame.
         yield return null;
-    }
+    }*/
 }
