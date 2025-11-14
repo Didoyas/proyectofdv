@@ -10,6 +10,7 @@ TagManager:
   - Undefined
   - Caja
   - Moneda
+  - Muro
   layers:
   - Default
   - TransparentFX
