@@ -89,6 +89,18 @@ public class VidaPlayer : MonoBehaviour
         esInvulnerable = false;
     }
 
+    public void Curar(int cantidad)
+{
+    vidaActual = vidaActual + cantidad;
+    
+    if (vidaActual > vidaMaxima)
+    {
+        vidaActual = vidaMaxima;
+    }
+
+    ActualizarVidasUI();
+}
+
     void Morir()
     {
 

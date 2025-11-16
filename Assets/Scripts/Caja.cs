@@ -7,6 +7,10 @@ public class Caja : MonoBehaviour, IRecibeImpactoRetroceso
     private Rigidbody2D rb;
     public float fuerzaRetroceso = 0.2f;
 
+    [Header("Drop de Objetos")]
+    public bool dropeaPocion = false;
+    public GameObject prefabPocion; // Prefab de la poción
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +39,12 @@ public class Caja : MonoBehaviour, IRecibeImpactoRetroceso
 
         if (vida <= 0)
         {
-            Destroy(gameObject);
+            if (dropeaPocion && prefabPocion != null)
+            {
+                Instantiate(prefabPocion, transform.position, Quaternion.identity);
+            }
+            
+            Destroy(gameObject); // La caja se destruye
         }
     }
 }

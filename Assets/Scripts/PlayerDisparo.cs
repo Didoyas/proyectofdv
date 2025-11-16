@@ -71,6 +71,14 @@ public class PlayerDisparo : MonoBehaviour
         }
     }
 
+    
+    public void AumentarCargaMaxima()
+    {
+        maxCargas++;
+        cargasActuales = maxCargas;
+    }
+
+
     void ActualizarUI() // funcion para actuializar el texto de cargas en panmtalla
     {
         if (cargasText != null)
