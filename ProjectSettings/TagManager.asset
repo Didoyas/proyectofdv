@@ -11,6 +11,8 @@ TagManager:
   - Caja
   - Moneda
   - Muro
+  - Llave
+  - puerta
   layers:
   - Default
   - TransparentFX
