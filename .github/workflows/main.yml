@@ -22,8 +22,16 @@ jobs:
             Library-${{ runner.os }}-
             Library-
 
-      - name: Ls
-        run: sudo du -h / | sort -hr | head -n 20
+      - name: Clean
+        run: |
+          df -h
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/local/.ghcup
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/share/swift
+          docker system prune -af || true
+          echo "Cleaned:"
+          df -h
         
       - name: Testing
         uses: game-ci/unity-test-runner@v4
