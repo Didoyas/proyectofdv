@@ -8,6 +8,8 @@ public class Llave : MonoBehaviour
     public float distanciaDestruccion = 1f; // Distancia para destruir la puerta
     private Transform jugador;
 
+    public Transform puerta;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,8 +26,8 @@ public class Llave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (jugador == null) return;
+ 
+        if (jugador == null || puerta == null) return;
 
         
             
@@ -39,17 +41,15 @@ public class Llave : MonoBehaviour
         }
 
         // Verificar cercanía con la puerta
-        GameObject puerta = GameObject.FindGameObjectWithTag("puerta");
-        if (puerta != null)
-        {
-            float distanciaPuerta = Vector3.Distance(transform.position, puerta.transform.position);
+        
+            float distanciaPuerta = Vector3.Distance(transform.position, puerta.position);
 
             if (distanciaPuerta <= distanciaDestruccion)
             {
-                Destroy(puerta);   // Destruir la puerta
+                Destroy(puerta.gameObject);   // Destruir la puerta
                 Destroy(gameObject); // Destruir la llave
             }
         }
 
-    }
+    
 }

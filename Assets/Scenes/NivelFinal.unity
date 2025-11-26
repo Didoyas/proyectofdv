@@ -989,6 +989,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb562d3d5e7ecf48a8e92c795009dd3, type: 3}
+--- !u!4 &126874424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8141884328299849579, guid: 2fd6159b9d34c1340ae8483c17e20ade, type: 3}
+  m_PrefabInstance: {fileID: 1463091657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &129043124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,6 +5435,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815897670}
   m_CullTransparentMesh: 1
+--- !u!4 &830128315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8141884328299849579, guid: 2fd6159b9d34c1340ae8483c17e20ade, type: 3}
+  m_PrefabInstance: {fileID: 420799050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &833259164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6527,6 +6537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Llave
       objectReference: {fileID: 0}
+    - target: {fileID: 8810102627310193927, guid: 3453fa3b5d928b448b97dbc59ece3d07, type: 3}
+      propertyPath: puerta
+      value: 
+      objectReference: {fileID: 1715985647}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7097,6 +7111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Llave (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8810102627310193927, guid: 3453fa3b5d928b448b97dbc59ece3d07, type: 3}
+      propertyPath: puerta
+      value: 
+      objectReference: {fileID: 1585147622}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9116,6 +9134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Llave (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8810102627310193927, guid: 3453fa3b5d928b448b97dbc59ece3d07, type: 3}
+      propertyPath: puerta
+      value: 
+      objectReference: {fileID: 126874424}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -74372,6 +74394,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335ae04aeec251f4dbbb20d60b4bd3ab, type: 3}
+--- !u!4 &1585147622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8141884328299849579, guid: 2fd6159b9d34c1340ae8483c17e20ade, type: 3}
+  m_PrefabInstance: {fileID: 2016489207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1586167403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74903,6 +74930,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e84d8315c9e0024fbb7632490631fb1, type: 3}
+--- !u!4 &1715985647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8141884328299849579, guid: 2fd6159b9d34c1340ae8483c17e20ade, type: 3}
+  m_PrefabInstance: {fileID: 99089225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1716234845
 GameObject:
   m_ObjectHideFlags: 0
@@ -75030,6 +75062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Llave (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8810102627310193927, guid: 3453fa3b5d928b448b97dbc59ece3d07, type: 3}
+      propertyPath: puerta
+      value: 
+      objectReference: {fileID: 830128315}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75246,6 +75282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Llave (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8810102627310193927, guid: 3453fa3b5d928b448b97dbc59ece3d07, type: 3}
+      propertyPath: puerta
+      value: 
+      objectReference: {fileID: 1820404016}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75510,6 +75550,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+--- !u!4 &1820404016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8141884328299849579, guid: 2fd6159b9d34c1340ae8483c17e20ade, type: 3}
+  m_PrefabInstance: {fileID: 1494056935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1829893193
 PrefabInstance:
   m_ObjectHideFlags: 0
