@@ -22,6 +22,8 @@ jobs:
             Library-${{ runner.os }}-
             Library-
 
+      - name: Ls
+        run: sudo du -h / | sort -hr | head -n 20
         
       - name: Testing
         uses: game-ci/unity-test-runner@v4
