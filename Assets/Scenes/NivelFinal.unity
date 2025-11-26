@@ -76187,7 +76187,7 @@ MonoBehaviour:
   baston: {fileID: 1760422202}
   proyectilPrefab: {fileID: 8399312588273230862, guid: 6e777d765626d504e906e1ff35d2a398, type: 3}
   cargasText: {fileID: 700610265}
-  maxCargas: 10
+  maxCargas: 5
   recargaTiempo: 1
 --- !u!212 &1937590448
 SpriteRenderer:
@@ -76366,7 +76366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ed32df83f9a124296b5eb9fd72bb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
-  vidaMaxima: 5
+  vidaMaxima: 3
   vidaActual: 0
   invulnerabilidadTiempo: 1
   panelMuerte: {fileID: 897163972}
