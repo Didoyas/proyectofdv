@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6ae60a93fb6b0a94eb80f9b4f0029a57
+guid: f19e7ee4b3ce70b40a5c2b470780fc0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3396222973925718754
-    second: 2 Corazones_0
+      213: -9220199217231053750
+    second: 2 Corazones 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2 Corazones_0
+      name: 2 Corazones 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3262
-        height: 1175
+        x: 178
+        y: 249
+        width: 4006
+        height: 1801
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e15032df2313ed0d0800000000000000
-      internalID: -3396222973925718754
+      spriteID: a4cbb92a9a54b0080800000000000000
+      internalID: -9220199217231053750
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2 Corazones_0: -3396222973925718754
+      2 Corazones 1_0: -9220199217231053750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
