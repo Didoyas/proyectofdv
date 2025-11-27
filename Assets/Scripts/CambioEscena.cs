@@ -20,6 +20,16 @@ public class CambioEscena : MonoBehaviour
         }
     }
 
+    public void Cambiar()
+    {
+        if (!puedeActivar) return;
+
+        if (!string.IsNullOrEmpty(nombreEscena))
+        {
+            panelConfirmacion.SetActive(true);
+        }
+    }
+
     // Llamado desde botón "Aceptar"
     public void Aceptar()
     {
@@ -33,6 +43,11 @@ public class CambioEscena : MonoBehaviour
     {
         panelConfirmacion.SetActive(false);
         StartCoroutine(CooldownCoroutine());
+    }
+
+    public void CancelarSinCoroutine()
+    {
+        panelConfirmacion.SetActive(false);
     }
 
     private IEnumerator CooldownCoroutine()

@@ -36,9 +36,18 @@ public class Inventario : MonoBehaviour
             slots[i] = TipoObjeto.Ninguno;
         }
 
+        CargarInventario();
+
         if (panelInventarioUI != null)
         {
-            panelInventarioUI.gameObject.SetActive(false);
+            if(slots[0] == TipoObjeto.Ninguno)
+            {
+                panelInventarioUI.gameObject.SetActive(false);
+            }
+            else
+            {
+                panelInventarioUI.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -68,6 +77,18 @@ public class Inventario : MonoBehaviour
         }
     }
 
+    void CargarInventario()
+    {
+        for (int i = 0; i < InventarioManager.instance.vidas; i++)
+            AgregarObjeto(TipoObjeto.PocionVida);
+            
+        for (int i = 0; i < InventarioManager.instance.cargas; i++)
+            AgregarObjeto(TipoObjeto.PocionCarga);
+            
+        InventarioManager.instance.vidas = 0;
+        InventarioManager.instance.cargas = 0;
+    }
+
     public bool AgregarObjeto(TipoObjeto objeto)
     {
         for (int i = 0; i < slots.Length; i++)
@@ -82,7 +103,6 @@ public class Inventario : MonoBehaviour
         
         return false;
     }
-
 
     void ActualizarInventarioUI()
     {
@@ -101,8 +121,6 @@ public class Inventario : MonoBehaviour
                 panelInventarioUI.sprite = spritePanelPocionCarga;
                 panelInventarioUI.gameObject.SetActive(true);
                 break;
-
-
 
             case TipoObjeto.Ninguno:
             default:

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelFinal.unity
     guid: ae605032b79623a40bac682bd2b63cec
+  - enabled: 1
+    path: Assets/Scenes/Mercado.unity
+    guid: 6576e0ebd2cd04c4388f41289f6b11d3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: b4cbf27a35d4e014d9048ef097309c5c, type: 3}
   m_UseUCBPForAssetBundles: 0
