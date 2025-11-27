@@ -114,7 +114,7 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
         if (temporizadorCooldownDisparo > 0f) temporizadorCooldownDisparo -= Time.deltaTime;
         if (temporizadorAtaqueFuerte > 0f) temporizadorAtaqueFuerte -= Time.deltaTime;
 
-        Movimiento();
+        //Movimiento();
 
         if (TieneLineaDeVision() && temporizadorCooldownDisparo <= 0f)
         {

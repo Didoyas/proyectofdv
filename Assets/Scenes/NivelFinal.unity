@@ -74927,7 +74927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ed32df83f9a124296b5eb9fd72bb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaPlayer
-  vidaMaxima: 10
+  vidaMaxima: 3
   vidaActual: 0
   invulnerabilidadTiempo: 1
   panelMuerte: {fileID: 897163972}
