@@ -187,4 +187,4 @@ MonoBehaviour:
   tiempoCargaAtaque: 0
   fuerzaRetroceso: 400
   tiempoStun: 0
-  monedaPrefab: {fileID: 922991135985235719, guid: 1eaea38dadfcc6048a9ff0992ff6a5f6, type: 3}
+  monedaPrefab: {fileID: 207451566603198012, guid: 8b17d52e531aec445b220e43947893ae, type: 3}

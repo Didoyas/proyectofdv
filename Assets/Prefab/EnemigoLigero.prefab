@@ -159,7 +159,7 @@ MonoBehaviour:
   movimientoLateralIntensidad: 0.5
   movimientoLateralFrecuencia: 2
   proyectilPrefab: {fileID: 8150879666162601330, guid: 24de82622a9b05943868e0c82dfa045f, type: 3}
-  monedaPrefab: {fileID: 922991135985235719, guid: 1eaea38dadfcc6048a9ff0992ff6a5f6, type: 3}
+  monedaPrefab: {fileID: 207451566603198012, guid: 8b17d52e531aec445b220e43947893ae, type: 3}
   fireCooldown: 0.5
   proyectilSpeed: 5
   fuerzaRetroceso: 0.2

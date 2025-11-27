@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &922991135985235719
+--- !u!1 &207451566603198012
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7296153622821477547}
-  - component: {fileID: 5058481391816671752}
-  - component: {fileID: -5039926958663556292}
+  - component: {fileID: 1211506192199859719}
+  - component: {fileID: 1083436192564647449}
+  - component: {fileID: -4336285044638679474}
   m_Layer: 0
   m_Name: Moneda
   m_TagString: Moneda
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7296153622821477547
+--- !u!4 &1211506192199859719
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922991135985235719}
+  m_GameObject: {fileID: 207451566603198012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1553, y: -0.7309, z: 0}
-  m_LocalScale: {x: 0.011, y: 0.011, z: 1}
+  m_LocalPosition: {x: -5.86, y: -0.98, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5058481391816671752
+--- !u!212 &1083436192564647449
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922991135985235719}
+  m_GameObject: {fileID: 207451566603198012}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,24 +80,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4261781527632007037, guid: 6ffc72a4532d30b49809491db158f3a2, type: 3}
+  m_Sprite: {fileID: 5488370903067918852, guid: 2dbddb0a8418fbb4cb6e8a4cfbfcc55c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.2, y: 4.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &-5039926958663556292
+--- !u!58 &-4336285044638679474
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922991135985235719}
+  m_GameObject: {fileID: 207451566603198012}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -125,5 +125,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.008225289, y: -0.0048969607}
-  m_Radius: 0.49721316
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.4300003
