@@ -74499,9 +74499,9 @@ MonoBehaviour:
   posicionRespawn: {x: -7, y: -1, z: 0}
   imagenVidasUI: {fileID: 1700779938}
   spritesVidas:
-  - {fileID: -7053448657651758788, guid: 9d0bc7c84f515e24a8a59f81e0b217d2, type: 3}
-  - {fileID: -3396222973925718754, guid: 6ae60a93fb6b0a94eb80f9b4f0029a57, type: 3}
-  - {fileID: 7798550841576895389, guid: e0acce7ed3295de4cadd7a626e7a7109, type: 3}
+  - {fileID: -6637527391111829278, guid: 7dfd51ef0da1aff4ba0ef69ac965c4e6, type: 3}
+  - {fileID: -9220199217231053750, guid: f19e7ee4b3ce70b40a5c2b470780fc0b, type: 3}
+  - {fileID: -641760767781547863, guid: 5967c26e889fc90498ba5f85adfc0dcd, type: 3}
   - {fileID: -4967855790192250622, guid: 998da676d640239458e6cb7fc176040d, type: 3}
 --- !u!114 &1937590454
 MonoBehaviour:
