@@ -19,6 +19,9 @@ public class BotonReiniciar : MonoBehaviour
         // reiniciamos score (monedas)
         ScoreManager.instance.score = 0;
 
+        InventarioManager.instance.vidas = 0;
+    InventarioManager.instance.cargas = 0;
+
         // 2. Obtén el índice de la escena actual y cárgala de nuevo
         // Esto reiniciará todo el nivel
         int indiceEscenaActual = SceneManager.GetActiveScene().buildIndex;

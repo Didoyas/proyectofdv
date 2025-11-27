@@ -14003,7 +14003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::InventarioManager
   vidas: 0
-  cargas: 2
+  cargas: 0
 --- !u!4 &1872028444
 Transform:
   m_ObjectHideFlags: 0

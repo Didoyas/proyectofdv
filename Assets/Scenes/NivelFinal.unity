@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::InventarioManager
   vidas: 0
-  cargas: 2
+  cargas: 0
 --- !u!4 &395787591
 Transform:
   m_ObjectHideFlags: 0
