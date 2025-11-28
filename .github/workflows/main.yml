@@ -6,7 +6,7 @@ on:
 
 jobs:
   editmode:
-    name: EditMode testing
+    name: Testing
     runs-on: ubuntu-latest
 
     steps:
@@ -33,13 +33,25 @@ jobs:
           echo "Cleaned:"
           df -h
         
-      - name: Testing
+      - name: EditMode Testing
         uses: game-ci/unity-test-runner@v4
         with:
           projectPath: .
           unityVersion: auto
           testMode: EditMode
           artifactsPath: artifacts
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+
+      - name: PlayMode Testing
+        uses: game-ci/unity-test-runner@v4
+        with:
+          projectPath: .
+          unityVersion: auto
+          testMode: PlayMode
+          artifactsPath: artifacts/playmode
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -105,5 +117,5 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: editmode-results
+          name: testing-results
           path: artifacts
