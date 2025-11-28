@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2208703988740019828, guid: b28f718a4b7e9214fa2bc5518bb69dc1, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.44705886, b: 0.050980397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Proyectil
   speed: 10
-  maxLifeTime: 3
   targetVector: {x: 0, y: 0}
-  initialVelocity: {x: 0, y: 0}
+  ignoreTags: []
+  esDeEnemigo: 0
 --- !u!61 &3612159788065751527
 BoxCollider2D:
   m_ObjectHideFlags: 0
