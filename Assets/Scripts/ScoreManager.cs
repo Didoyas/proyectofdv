@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 
     public int score = 0;
 
-    private void Awake()
+    public void Awake()
     {
         if (instance == null)
         {
