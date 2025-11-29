@@ -561,6 +561,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4419432
       objectReference: {fileID: 0}
@@ -603,6 +611,26 @@ PrefabInstance:
     - target: {fileID: 8852305519334683866, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_Name
       value: Caja (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7100757809047929424, guid: 36c26e4a20e3ecd40992b86d429e95d9, type: 3}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -978,6 +1006,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4419432
       objectReference: {fileID: 0}
@@ -1020,6 +1056,22 @@ PrefabInstance:
     - target: {fileID: 8852305519334683866, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_Name
       value: Caja (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7100757809047929424, guid: 36c26e4a20e3ecd40992b86d429e95d9, type: 3}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2356,6 +2408,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.37
       objectReference: {fileID: 0}
@@ -2398,6 +2458,22 @@ PrefabInstance:
     - target: {fileID: 8852305519334683866, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_Name
       value: Caja (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7100757809047929424, guid: 36c26e4a20e3ecd40992b86d429e95d9, type: 3}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096838718281766692, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
