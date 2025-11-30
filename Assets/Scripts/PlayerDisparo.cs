@@ -8,27 +8,34 @@ public class PlayerDisparo : MonoBehaviour
 
     public GameObject baston, proyectilPrefab; //Generador de proyectiles (baston), Prefab del protyectil
 
-    public Text cargasText; //texto UI de las cargas actuales
+    public BalaGestor uiBalas; 
+    
     public static bool puedeDisparar = true;
     public int maxCargas = 5; //maximo de cargas         
     private int _cargasActuales; //cargas actuales
+    public float recargaTiempo = 1f; 
     private int cargasActuales
     {
         get { return _cargasActuales; }
         set
         {
             _cargasActuales = Mathf.Min(Mathf.Max(value, 0), maxCargas);
-            ActualizarUI();
+            
+            if(uiBalas != null) uiBalas.ActualizarBalas(_cargasActuales);
+
         }
     }
-    public float recargaTiempo = 1f; //tiempo de recarga de las cargas
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        cargasActuales = maxCargas; //cargas al maximo
-        StartCoroutine(Recargar()); //Inicia rutina de recarga
-    }
+        if (uiBalas != null)
+        {
+            uiBalas.DibujarCasillas(maxCargas);
+        }
+
+        cargasActuales = maxCargas; // Esto activará el 'set' y pintará las balas llenas
+        StartCoroutine(Recargar()); }
 
     // Update is called once per frame
     void Update()
@@ -47,12 +54,17 @@ public class PlayerDisparo : MonoBehaviour
         GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity); //se instancia proyectil 
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //posicion del puntero del raton 
+        mouseWorldPos.z = 0f;
         Vector2 direction = (mouseWorldPos - baston.transform.position).normalized; //diferencia entre la camara y puntero del raton 
         direction.Normalize(); // normaliza 
 
         Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
-        proyectilScript.targetVector = direction; // direccion del proyectil 
-        proyectilScript.ignoreTags = new string[] { "Player", "Proyectil", "Moneda", "Untagged", "Llave" }; // ignorar colisiones con el jugador o otros proyectiles
+        
+        if(proyectilScript != null) 
+        {
+             proyectilScript.targetVector = new Vector2(direction.x, direction.y);
+             proyectilScript.ignoreTags = new string[] { "Player", "Proyectil", "Moneda", "Untagged", "Llave" }; 
+        }
 
         cargasActuales--; //se reduce una carga al disparar
         
@@ -75,15 +87,7 @@ public class PlayerDisparo : MonoBehaviour
     public void AumentarCargaMaxima()
     {
         maxCargas++;
+        if(uiBalas != null) uiBalas.DibujarCasillas(maxCargas);
         cargasActuales = maxCargas;
-    }
-
-
-    void ActualizarUI() // funcion para actuializar el texto de cargas en panmtalla
-    {
-        if (cargasText != null)
-        {
-            cargasText.text = "Cargas " + cargasActuales + " / " + maxCargas;
         }
     }
-}

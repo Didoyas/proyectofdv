@@ -21,7 +21,7 @@ public class PlayerDisparoTests
         disparo.maxCargas = 5;
         disparo.recargaTiempo = 0.1f;
         var textObj = new GameObject("CargasText");
-        disparo.cargasText = textObj.AddComponent<Text>();
+        //disparo.cargasText = textObj.AddComponent<Text>();
 
         // Inicializamos disparo
         typeof(PlayerDisparo).GetField("_cargasActuales", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(disparo, disparo.maxCargas);
@@ -76,7 +76,7 @@ public class PlayerDisparoTests
         Assert.That(proyectilesFinal, Is.EqualTo(proyectilesInicial + 1), "Disparar crea instancia nueva de proyectil");
     }
 
-    // Al disparar, se actualiza el texto de cargas
+    /* Al disparar, se actualiza el texto de cargas
     [Test]
     public void Disparar_ActualizaUI()
     {
@@ -88,7 +88,7 @@ public class PlayerDisparoTests
         string textoFinal = disparo.cargasText.text;
         
         Assert.AreNotEqual(textoInicial, textoFinal, "Disparar tiene que actualizar UI");
-    }
+    }*/
 
     // Las cargas siempre son menores o iguales que el maximo de cargas permitido
     [Test]

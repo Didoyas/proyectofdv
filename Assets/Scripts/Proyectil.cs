@@ -120,6 +120,7 @@ public class Proyectil : MonoBehaviour
         Destroy(gameObject);
         return;
     }
+    
     Destroy(gameObject);
 }
 }
