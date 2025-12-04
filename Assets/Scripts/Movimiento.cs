@@ -13,8 +13,10 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 16f;
     [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private DashGestor dashGestor;
     private Vector2 dashDirection;
     private float _dashTimer;
+
     private float dashTimer
     {
         get { return _dashTimer; }
@@ -62,6 +64,8 @@ public class Movimiento : MonoBehaviour
                 StartCoroutine(vidaPlayer.HacerInvulnerable(dashDuration));
             }
         }
+        if(dashGestor != null)
+        dashGestor.ActualizarImagen(dashTimer > 0f);
     }
 
     void FixedUpdate()
