@@ -40,6 +40,8 @@ public class PlayerDisparo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.juegoPausado) return;
+        
         if (puedeDisparar && Mouse.current.leftButton.wasPressedThisFrame && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
         {
 
