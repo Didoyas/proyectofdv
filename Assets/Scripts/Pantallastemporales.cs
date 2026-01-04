@@ -7,23 +7,21 @@ public class Pantallastemporales : MonoBehaviour
 
     
     public float duracionPantalla = 3f; 
-    private bool yaActivado = false;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!yaActivado && collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            yaActivado = true;
-            StartCoroutine(MostrarPantallaTemporal());
+            // Activamos la pantalla mientras el jugador esté dentro
+            canvasPantallaTemporal.SetActive(true);
         }
     }
 
-    private System.Collections.IEnumerator MostrarPantallaTemporal()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        canvasPantallaTemporal.SetActive(true);
-
-        yield return new WaitForSeconds(duracionPantalla);
-
-        canvasPantallaTemporal.SetActive(false);
+        if (collision.CompareTag("Player"))
+        {
+            // Desactivamos la pantalla al salir
+            canvasPantallaTemporal.SetActive(false);
+        }
     }
 }
