@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PocionVida : MonoBehaviour
 {
+    public AudioClip sonidoRecoger;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Comprobamos si Player lo toca
@@ -16,6 +18,7 @@ public class PocionVida : MonoBehaviour
                 
                 if (recogido)
                 {
+                    AudioManager.PlaySFX(sonidoRecoger, transform.position);
                     Destroy(gameObject);
                 }
             }

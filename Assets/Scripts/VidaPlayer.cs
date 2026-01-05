@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class VidaPlayer : MonoBehaviour
 {
@@ -10,12 +10,13 @@ public class VidaPlayer : MonoBehaviour
     private bool esInvulnerable = false;
 
     public GameObject panelMuerte;
+    public AudioClip sonidoImpacto;
 
     public Vector3 posicionRespawn = new Vector3(-7f, -1f, 0f);
 
     [Header("UI de Vida")] public Image imagenVidasUI;             // componentes images
     public Sprite[] spritesVidas;           // lista de 4 pngs
-    
+
 
     void Start()
     {
@@ -34,6 +35,8 @@ public class VidaPlayer : MonoBehaviour
         {
             return;
         }
+
+        AudioManager.PlaySFX(sonidoImpacto, transform.position);
 
         vidaActual = vidaActual - daño;
 
@@ -90,16 +93,16 @@ public class VidaPlayer : MonoBehaviour
     }
 
     public void Curar(int cantidad)
-{
-    vidaActual = vidaActual + cantidad;
-    
-    if (vidaActual > vidaMaxima)
     {
-        vidaActual = vidaMaxima;
-    }
+        vidaActual = vidaActual + cantidad;
 
-    ActualizarVidasUI();
-}
+        if (vidaActual > vidaMaxima)
+        {
+            vidaActual = vidaMaxima;
+        }
+
+        ActualizarVidasUI();
+    }
 
     void Morir()
     {
@@ -112,7 +115,7 @@ public class VidaPlayer : MonoBehaviour
         Time.timeScale = 0f;
         gameObject.SetActive(false);
     }
-    
+
     public void push()
     {
 

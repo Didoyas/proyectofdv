@@ -1,31 +1,32 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
 
 public class PlayerDisparo : MonoBehaviour
 {
 
     public GameObject baston, proyectilPrefab; //Generador de proyectiles (baston), Prefab del protyectil
+    public AudioClip sonidoDisparo;
 
-    public BalaGestor uiBalas; 
-    
+    public BalaGestor uiBalas;
+
     public static bool puedeDisparar = true;
     public int maxCargas = 5; //maximo de cargas         
     private int _cargasActuales; //cargas actuales
-    public float recargaTiempo = 1f; 
+    public float recargaTiempo = 1f;
     private int cargasActuales
     {
         get { return _cargasActuales; }
         set
         {
             _cargasActuales = Mathf.Min(Mathf.Max(value, 0), maxCargas);
-            
-            if(uiBalas != null) uiBalas.ActualizarBalas(_cargasActuales);
+
+            if (uiBalas != null) uiBalas.ActualizarBalas(_cargasActuales);
 
         }
     }
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,13 +36,14 @@ public class PlayerDisparo : MonoBehaviour
         }
 
         cargasActuales = maxCargas; // Esto activará el 'set' y pintará las balas llenas
-        StartCoroutine(Recargar()); }
+        StartCoroutine(Recargar());
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (PauseMenu.juegoPausado) return;
-        
+
         if (puedeDisparar && Mouse.current.leftButton.wasPressedThisFrame && cargasActuales > 0) //si el jugador hace click izquierdo y las cargas son mayores a 0 
         {
 
@@ -52,8 +54,9 @@ public class PlayerDisparo : MonoBehaviour
 
     void Disparar()
     {
+        AudioManager.PlaySFX(sonidoDisparo, transform.position);
 
-        GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity); //se instancia proyectil 
+        GameObject proyectil = Instantiate(proyectilPrefab, baston.transform.position, Quaternion.identity);
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //posicion del puntero del raton 
         mouseWorldPos.z = 0f;
@@ -61,15 +64,15 @@ public class PlayerDisparo : MonoBehaviour
         direction.Normalize(); // normaliza 
 
         Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
-        
-        if(proyectilScript != null) 
+
+        if (proyectilScript != null)
         {
-             proyectilScript.targetVector = new Vector2(direction.x, direction.y);
-             proyectilScript.ignoreTags = new string[] { "Player", "Proyectil", "Moneda", "Untagged", "Llave" }; 
+            proyectilScript.targetVector = new Vector2(direction.x, direction.y);
+            proyectilScript.ignoreTags = new string[] { "Player", "Proyectil", "Moneda", "Untagged", "Llave" };
         }
 
         cargasActuales--; //se reduce una carga al disparar
-        
+
     }
 
     IEnumerator Recargar() //funcion de recarga de cargas 
@@ -85,11 +88,11 @@ public class PlayerDisparo : MonoBehaviour
         }
     }
 
-    
+
     public void AumentarCargaMaxima()
     {
         maxCargas++;
-        if(uiBalas != null) uiBalas.DibujarCasillas(maxCargas);
+        if (uiBalas != null) uiBalas.DibujarCasillas(maxCargas);
         cargasActuales = maxCargas;
-        }
     }
+}
