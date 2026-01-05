@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PocionCarga : MonoBehaviour
 {
+    public AudioClip sonidoRecoger;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -14,6 +16,7 @@ public class PocionCarga : MonoBehaviour
                 
                 if (recogido)
                 {
+                    AudioManager.PlaySFX(sonidoRecoger, transform.position);
                     Destroy(gameObject);
                 }
             }

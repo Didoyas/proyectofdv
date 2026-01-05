@@ -109,6 +109,7 @@ MonoBehaviour:
   targetVector: {x: 0, y: 0}
   ignoreTags: []
   esDeEnemigo: 0
+  sonidoImpactoEnemigo: {fileID: 8300000, guid: da813355c87acd24e97aef699a802d55, type: 3}
 --- !u!61 &4554871545522887824
 BoxCollider2D:
   m_ObjectHideFlags: 0

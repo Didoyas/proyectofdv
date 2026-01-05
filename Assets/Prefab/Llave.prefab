@@ -107,3 +107,4 @@ MonoBehaviour:
   velocidad: 5
   distanciaDestruccion: 1
   puerta: {fileID: 0}
+  sonidoRecoger: {fileID: 8300000, guid: c8308669ffd362e47b9400b829ab6718, type: 3}

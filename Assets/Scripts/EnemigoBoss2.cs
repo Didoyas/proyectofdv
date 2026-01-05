@@ -70,6 +70,7 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
     void Start()
     {
         temporizadorAtaqueFuerte = cooldownAtaqueFuerte;
+        if (AudioManager.instance != null) AudioManager.instance.CambiarAMusicaBoss();
     }
 
     void Update()

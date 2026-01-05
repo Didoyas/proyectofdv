@@ -150,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89260fe9467623f40b36f5132d866424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Scripts::PocionCarga
+  sonidoRecoger: {fileID: 8300000, guid: fee1720efa2dfe4459ccf20b0e9e5d17, type: 3}

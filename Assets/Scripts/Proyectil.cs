@@ -76,6 +76,7 @@ public class Proyectil : MonoBehaviour
     public Vector2 targetVector;
     public string[] ignoreTags;
     public bool esDeEnemigo = false; // para marcar si la bala es enemiga
+    public AudioClip sonidoImpactoEnemigo;
 
     private void Update()
     {
@@ -103,6 +104,7 @@ public class Proyectil : MonoBehaviour
 
     if (!esDeEnemigo && (other.CompareTag("Enemigo") || other.CompareTag("Caja")))
         {
+        AudioManager.PlaySFX(sonidoImpactoEnemigo, transform.position);
         
         IRecibeImpactoRetroceso recibeImpactoRetroceso = other.GetComponent<IRecibeImpactoRetroceso>();
         if (recibeImpactoRetroceso != null)

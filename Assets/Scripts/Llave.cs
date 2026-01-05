@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Llave : MonoBehaviour
 {
-
-    public float distanciaDeteccion = 3f;   // Distancia a la que la llave "detecta" al jugador
-    public float velocidad = 5f;            // Velocidad de seguimiento
-    public float distanciaDestruccion = 1f; // Distancia para destruir la puerta
+    public float distanciaDeteccion = 3f;
+    public float velocidad = 5f;
+    public float distanciaDestruccion = 1f;
     private Transform jugador;
 
     public Transform puerta;
+    public AudioClip sonidoRecoger;
+    private bool recogida = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,11 @@ public class Llave : MonoBehaviour
         // Si el jugador está cerca, la llave lo sigue
         if (distancia <= distanciaDeteccion && distancia > 0.3f)
         {
+            if (!recogida)
+            {
+                AudioManager.PlaySFX(sonidoRecoger, transform.position);
+                recogida = true;
+            }
             transform.position = Vector3.Lerp(transform.position, jugador.position, velocidad * Time.deltaTime);
         }
 
