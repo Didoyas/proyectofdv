@@ -29,6 +29,10 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
     public float fuerzaRush = 20f;
     public int dañoRush = 2;
 
+    [Header("Fase de Columnas")]
+    public bool invulnerable = true;
+    private int orbesVivos = 0;
+
     private bool cargandoAtaqueFuerte = false;
     private float tiempoCargaRestante = 0f;
     private float duracionCarga = 1f;
@@ -358,7 +362,7 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
 
     public void RecibeImpactoRetroceso(int cantidadImpacto, Vector2 origenImpacto)
     {
-
+        if(invulnerable) return;
         if (!objetivo) return;
 
         float distanciaAlJugador = Vector2.Distance(transform.position, objetivo.position);
@@ -381,6 +385,22 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
         {
             Vector3 origin = transform.position;
             GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
+        }
+    }
+
+    public void RegistrarOrbe()
+    {
+        orbesVivos++;
+        invulnerable = true;
+    }
+
+    public void OrbeDestruido()
+    {
+        orbesVivos--;
+
+        if (orbesVivos <= 0)
+        {
+            invulnerable = false;
         }
     }
 }
