@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text scoreText;
+    public AudioClip sonidoRecoger;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class Score : MonoBehaviour
     {
         if (other.CompareTag("Moneda"))
         {
+            AudioManager.PlaySFX(sonidoRecoger, other.transform.position);
             Destroy(other.gameObject);
             ScoreManager.instance.score++;
             ActualizarUI();

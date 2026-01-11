@@ -59,6 +59,7 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
     private Transform objetivo;
     private Rigidbody2D rb;
     public float fuerzaRetroceso = 0.2f;
+    private bool musicaBossActivada = false;
 
     void Awake()
     {
@@ -74,12 +75,17 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
     void Start()
     {
         temporizadorAtaqueFuerte = cooldownAtaqueFuerte;
-        if (AudioManager.instance != null) AudioManager.instance.CambiarAMusicaBoss();
     }
 
     void Update()
     {
         if (objetivo == null) return;
+
+        if (!musicaBossActivada && TieneLineaDeVision())
+        {
+            if (AudioManager.instance != null) AudioManager.instance.CambiarAMusicaBoss();
+            musicaBossActivada = true;
+        }
 
         if (cargandoAtaqueFuerte)
         {

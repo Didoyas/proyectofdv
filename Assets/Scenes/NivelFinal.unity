@@ -80698,6 +80698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
   scoreText: {fileID: 815897672}
+  sonidoRecoger: {fileID: 8300000, guid: cb3b4c9a681dd1547a29c2715d44fcaf, type: 3}
 --- !u!114 &1937590455
 MonoBehaviour:
   m_ObjectHideFlags: 0
