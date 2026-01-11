@@ -71,7 +71,7 @@ public class Inventario : MonoBehaviour
 
         // --- USAR OBJETO ---
         // Con la tecla "Y"
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             UsarObjetoSeleccionado();
         }
