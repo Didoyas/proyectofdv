@@ -3,42 +3,51 @@ using UnityEngine;
 public class Animacion : MonoBehaviour
 {
     public Transform spriteTransform;
-
     public Movimiento movimientoJugador;
+    public SpriteRenderer spriteRenderer;
 
-    public float amplitud = 0.1f;
+    public float anguloMaximo = 8f;
     public float frecuencia = 6f;
 
-    private Vector3 posicionInicial;
+    private Quaternion rotacionInicial;
 
     void Start()
     {
         if (spriteTransform == null)
             spriteTransform = transform;
 
-        posicionInicial = spriteTransform.localPosition;
+        if (spriteRenderer == null)
+            spriteRenderer = spriteTransform.GetComponent<SpriteRenderer>();
+
+        rotacionInicial = spriteTransform.localRotation;
     }
 
     void Update()
     {
         bool seEstaMoviendo = true;
 
-        // Velocidad de Movimiento.cs
         if (movimientoJugador != null)
         {
-            seEstaMoviendo = movimientoJugador.VelocidadActual.magnitude > 0.1f;
+            Vector2 velocidad = movimientoJugador.VelocidadActual;
+            seEstaMoviendo = velocidad.magnitude > 0.1f;
+
+            // 👉 FLIP izquierda / derecha (A / D)
+            if (Mathf.Abs(velocidad.x) > 0.01f)
+            {
+                spriteRenderer.flipX = velocidad.x < 0;
+            }
         }
 
         if (seEstaMoviendo)
         {
-            float nuevaY = posicionInicial.y + Mathf.Sin(Time.time * frecuencia) * amplitud;
-            spriteTransform.localPosition = new Vector3(posicionInicial.x, nuevaY, posicionInicial.z);
+            float angulo = Mathf.Sin(Time.time * frecuencia) * anguloMaximo;
+            spriteTransform.localRotation = Quaternion.Euler(0f, 0f, angulo);
         }
         else
         {
-            spriteTransform.localPosition = Vector3.Lerp(
-                spriteTransform.localPosition,
-                posicionInicial,
+            spriteTransform.localRotation = Quaternion.Lerp(
+                spriteTransform.localRotation,
+                rotacionInicial,
                 Time.deltaTime * 5f
             );
         }
