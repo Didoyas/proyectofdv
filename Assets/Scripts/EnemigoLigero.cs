@@ -3,109 +3,110 @@ using UnityEngine;
 public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 {
     private Rigidbody2D rb;
-    public float velocidad = 26f;          // Velocidad lenta
-    public float rangoDeteccion = 7f;    // Distancia máxima para detectar al jugador
 
-    public float rangoAtaque = 1f;        // Distancia de ataque cuerpo a cuerpo
+    [Header("Movimiento")]
+    public float velocidad = 3f;
+    public float rangoDeteccion = 7f;
+    public float rangoAtaque = 1f;
+
+    [Header("Combate")]
     public int vida = 2;
-    public int daño = 1;                 // Daño al jugador
-    public float tiempoEntreAtaques = 0.5f; // Enfriamiento entre ataques
-    public float tiempoCargaAtaque = 0f; // Tiempo antes de golpear
+    public int daño = 1;
+    public float tiempoEntreAtaques = 0.5f;
+    public float tiempoCargaAtaque = 0f;
 
-    private Transform target;           // Referencia al jugador
-    private float tiempoUltimoAtaque = 0f;
-
-    private Vector2 posicionInicial; // Posición donde empezó el enemigo
-
-    private bool puedeMoverse = true;      // Flag para controlar movimiento
-    private bool estaAtacando = false;  // Previene múltiples ataques solapados
-
-    public float fuerzaRetroceso = 400f;   // reemplaza distanciaRetroceso
-    public float tiempoStun = 0f;      // tiempo que queda inmóvil tras recibir golpe
+    [Header("Retroceso")]
+    public float fuerzaRetroceso = 400f;
+    public float tiempoStun = 0f;
 
     public GameObject monedaPrefab;
+
+    private Transform target;
+    private Vector2 posicionInicial;
+
+    private bool puedeMoverse = true;
+    private bool estaAtacando = false;
+    private float tiempoUltimoAtaque = 0f;
+
+    // Movimiento controlado
+    private Vector2 direccionMovimiento;
+    private bool debeMoverse = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Dynamic;    
+        rb.bodyType = RigidbodyType2D.Dynamic;
         rb.freezeRotation = true;
-        posicionInicial = rb.position; // Guardamos la posición inicial
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+        posicionInicial = rb.position;
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
         if (target == null)
         {
-            throw new System.Exception("No se encontró el jugador");
+            Debug.LogError("No se encontró el jugador");
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-          if (target == null || !puedeMoverse) return;
+        if (target == null || !puedeMoverse)
+        {
+            debeMoverse = false;
+            return;
+        }
 
-        float distancia = Vector2.Distance(transform.position, target.position);
+        float distancia = Vector2.Distance(rb.position, target.position);
 
         if (distancia <= rangoDeteccion)
         {
-            MoverHacia(target.position);
+            direccionMovimiento = (target.position - (Vector3)rb.position).normalized;
+            debeMoverse = true;
 
-            if (distancia <= rangoAtaque && Time.time >= tiempoUltimoAtaque + tiempoEntreAtaques && !estaAtacando)
+            if (distancia <= rangoAtaque &&
+                Time.time >= tiempoUltimoAtaque + tiempoEntreAtaques &&
+                !estaAtacando)
             {
                 StartCoroutine(AtacarConRetraso());
             }
         }
         else
         {
-            RegresarAlInicio();
+            Vector2 dirInicio = posicionInicial - rb.position;
+
+            if (dirInicio.magnitude > 0.05f)
+            {
+                direccionMovimiento = dirInicio.normalized;
+                debeMoverse = true;
+            }
+            else
+            {
+                debeMoverse = false;
+            }
         }
     }
 
-     void MoverHacia(Vector2 destino)
+    void FixedUpdate()
     {
-        Vector2 direccion = (destino - rb.position).normalized;
-        Vector2 nuevaPos = rb.position + direccion * velocidad * Time.deltaTime;
+        if (!debeMoverse) return;
+
+        Vector2 nuevaPos = rb.position + direccionMovimiento * velocidad * Time.fixedDeltaTime;
         rb.MovePosition(nuevaPos);
-    }
-   
-
-    void RegresarAlInicio()
-    {
-        float distanciaAlInicio = Vector2.Distance(rb.position, posicionInicial);
-        if (distanciaAlInicio > 0.05f)
-        {
-            MoverHacia(posicionInicial);
-        }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
     }
 
     private System.Collections.IEnumerator AtacarConRetraso()
     {
-                estaAtacando = true;
+        estaAtacando = true;
         puedeMoverse = false;
-        rb.linearVelocity = Vector2.zero;
+        debeMoverse = false;
 
-        
         yield return new WaitForSeconds(tiempoCargaAtaque);
 
-        float distanciaActual = Vector2.Distance(transform.position, target.position);
+        float distanciaActual = Vector2.Distance(rb.position, target.position);
         if (distanciaActual <= rangoAtaque)
         {
             Atacar();
             tiempoUltimoAtaque = Time.time;
-        }
-        else
-        {
-            Debug.Log("Jugador fuera de rango al terminar la carga, se cancela el ataque.");
         }
 
         yield return new WaitForSeconds(tiempoEntreAtaques);
@@ -116,23 +117,18 @@ public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
 
     void Atacar()
     {
-        // Sonido ataque
-        Debug.Log("El enemigo pesado ataca al jugador");
-
-        // Buscar componente de salud en el jugador
-        VidaPlayer vidaActual = target.GetComponent<VidaPlayer>();
-        if (vidaActual != null)
+        VidaPlayer vidaPlayer = target.GetComponent<VidaPlayer>();
+        if (vidaPlayer != null)
         {
-            vidaActual.RecibirDaño(daño);
+            vidaPlayer.RecibirDaño(daño);
         }
     }
-
 
     public void RecibeImpactoRetroceso(int cantidadImpacto, Vector2 origenImpacto)
     {
         vida -= cantidadImpacto;
 
-        Vector2 direccionRetroceso = ((Vector2)rb.position - origenImpacto).normalized;
+        Vector2 direccionRetroceso = (rb.position - origenImpacto).normalized;
         rb.AddForce(direccionRetroceso * fuerzaRetroceso, ForceMode2D.Impulse);
 
         StartCoroutine(StunTemporal());
@@ -143,21 +139,21 @@ public class EnemigoLigero : MonoBehaviour, IRecibeImpactoRetroceso
         }
     }
 
-    // Un Stun
     private System.Collections.IEnumerator StunTemporal()
     {
         puedeMoverse = false;
+        debeMoverse = false;
+
         yield return new WaitForSeconds(tiempoStun);
+
         puedeMoverse = true;
     }
 
     void OnDestroy()
     {
-        // Evita crear monedas si la escena se está cerrando o recargando
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && monedaPrefab != null)
         {
-            Vector3 origin = transform.position;
-            GameObject moneda = Instantiate(monedaPrefab, origin, Quaternion.identity);
+            Instantiate(monedaPrefab, transform.position, Quaternion.identity);
         }
     }
 }
