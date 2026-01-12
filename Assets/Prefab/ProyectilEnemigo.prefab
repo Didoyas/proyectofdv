@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 8150879666162601330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.315817, y: 10.162713, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: -29.4406, y: 14.3069, z: 0}
+  m_LocalScale: {x: 0.1088, y: 0.1088, z: 0.0272}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2208703988740019828, guid: b28f718a4b7e9214fa2bc5518bb69dc1, type: 3}
-  m_Color: {r: 0.7169812, g: 0.050729793, b: 0.07315164, a: 1}
+  m_Sprite: {fileID: -4125837734360734534, guid: 98d5697c7a3b33e429189ab2839cda0e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   targetVector: {x: 0, y: 0}
   ignoreTags: []
   esDeEnemigo: 0
+  sonidoImpactoEnemigo: {fileID: 0}
 --- !u!61 &-6564106927717078838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.04, y: 0.04}
+    oldSize: {x: 2.12, y: 2.13}
     newSize: {x: 0.04, y: 0.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
