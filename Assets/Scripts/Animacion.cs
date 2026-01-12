@@ -33,7 +33,7 @@ public class Animacion : MonoBehaviour
     {
         if (movimientoJugador == null) return;
 
-        // ───────── DASH ─────────
+        // DASH 
         if (movimientoJugador.EstaHaciendoDash)
         {
             if (!estabaDashing)
@@ -41,7 +41,7 @@ public class Animacion : MonoBehaviour
                 rotacionDash = 0f;
                 estabaDashing = true;
 
-                // 👉 determinar sentido del giro
+                // determinar sentido del giro
                 float dirX = movimientoJugador.DireccionDashX;
                 direccionGiro = Mathf.Abs(dirX) < 0.01f ? 1f : Mathf.Sign(dirX);
             }
@@ -56,7 +56,7 @@ public class Animacion : MonoBehaviour
             spriteTransform.localRotation = rotacionInicial;
         }
 
-        // ───────── MOVIMIENTO NORMAL ─────────
+        // MOVIMIENTO NORMAL 
         Vector2 velocidad = movimientoJugador.VelocidadActual;
         bool seEstaMoviendo = velocidad.magnitude > 0.1f;
 
