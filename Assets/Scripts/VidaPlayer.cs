@@ -106,6 +106,7 @@ public class VidaPlayer : MonoBehaviour
 
     void Morir()
     {
+        if (AudioManager.instance != null) AudioManager.instance.CambiarAMusicaNormal();
 
         if (panelMuerte != null)
         {
