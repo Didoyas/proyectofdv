@@ -15,8 +15,7 @@ public class PuertaFinal : MonoBehaviour
 
     void DestruirPuerta()
     {
-        
-        Destroy(gameObject); // Destruye la puerta
-        
+        gameObject.SetActive(false);
+        //Destroy(gameObject); // Destruye la puerta
     }
 }
