@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 549d3971eb258304fbe3932cb0449ad4
+guid: f7a6016e82b0da44c9a469304986f98a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2926627173925634761
-    second: menos_0
+      213: 4506492694891613593
+    second: SolidArrow-Right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menos_0
+      name: SolidArrow-Right_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 30
-        height: 30
+        x: 0
+        y: 0
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73d382c57188267d0800000000000000
-      internalID: -2926627173925634761
+      spriteID: 99d48e5ca374a8e30800000000000000
+      internalID: 4506492694891613593
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      menos_0: -2926627173925634761
+      SolidArrow-Right_0: 4506492694891613593
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

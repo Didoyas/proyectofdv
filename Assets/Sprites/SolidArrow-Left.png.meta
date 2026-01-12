@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ccc98f3ca286d024d8c35fa8487efb82
+guid: 062e17f96fac0d64988d766da02dcb4c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2979949358407401427
-    second: mas_0
+      213: 8378325038732258847
+    second: SolidArrow-Left_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mas_0
+      name: SolidArrow-Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d204973d8d715a6d0800000000000000
-      internalID: -2979949358407401427
+      spriteID: f1ea5628b3ac54470800000000000000
+      internalID: 8378325038732258847
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mas_0: -2979949358407401427
+      SolidArrow-Left_0: 8378325038732258847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

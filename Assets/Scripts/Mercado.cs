@@ -116,13 +116,17 @@ public class Mercado : MonoBehaviour
 
     IEnumerator CompraFallida()
     {
-        Color color = comprar.image.color;
+        Color comprarColor = comprar.image.color;
+        Color scoreColor = score.scoreText.color;
         comprar.image.color = Color.red;
+        score.scoreText.color = Color.red;
         puedeComprar = false;
 
         yield return new WaitForSeconds(1f);
 
         puedeComprar = true;
-        comprar.image.color = color;
+        comprar.image.color = comprarColor;
+        score.scoreText.color = scoreColor;
+
     }
 }
