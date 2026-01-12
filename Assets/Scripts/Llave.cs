@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Llave : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Llave : MonoBehaviour
     private Transform jugador;
 
     public Transform puerta;
+    public GameObject puertas;
     public AudioClip sonidoRecoger;
     private bool recogida = false;
 
@@ -53,6 +55,7 @@ public class Llave : MonoBehaviour
             if (distanciaPuerta <= distanciaDestruccion)
             {
                 Destroy(puerta.gameObject);   // Destruir la puerta
+                puertas.SetActive(false);
                 Destroy(gameObject); // Destruir la llave
             }
         }
