@@ -368,7 +368,7 @@ public class EnemigoBoss2 : MonoBehaviour, IRecibeImpactoRetroceso
 
     public void RecibeImpactoRetroceso(int cantidadImpacto, Vector2 origenImpacto)
     {
-        if(invulnerable) return;
+        if (invulnerable) return;
         if (!objetivo) return;
 
         float distanciaAlJugador = Vector2.Distance(transform.position, objetivo.position);
