@@ -2899,8 +2899,8 @@ MonoBehaviour:
   slots: 000000000000000000000000
   slotSeleccionado: 0
   panelInventarioUI: {fileID: 1179705513}
-  spritePanelPocion: {fileID: 1955970851829769633, guid: 82a1d698751cd2e42af2513fb5273e9e, type: 3}
-  spritePanelPocionCarga: {fileID: -7869323459322651205, guid: 4e6092c267304d64990684017802b9d0, type: 3}
+  spritePanelPocion: {fileID: -8480392237783018774, guid: 29dd7d4435425554fa2e3f88db7b01ed, type: 3}
+  spritePanelPocionCarga: {fileID: 8606353162073004935, guid: ae2baaebcf00a0f4abd4e65d35587df1, type: 3}
 --- !u!114 &747011356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3376,7 +3376,7 @@ PrefabInstance:
     - target: {fileID: -6604133155077544475, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: prefabPocion
       value: 
-      objectReference: {fileID: 9002252035468472191, guid: 0cb562d3d5e7ecf48a8e92c795009dd3, type: 3}
+      objectReference: {fileID: 4740791171100525765, guid: af6f819b99a00e44296d9d473e88564b, type: 3}
     - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5800037
@@ -8148,8 +8148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 740, y: -400}
-  m_SizeDelta: {x: 363, y: 192}
+  m_AnchoredPosition: {x: 741.74744, y: -377.28323}
+  m_SizeDelta: {x: 359.5051, y: 237.4335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179705513
 MonoBehaviour:
@@ -41211,7 +41211,7 @@ PrefabInstance:
     - target: {fileID: -6604133155077544475, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: prefabPocion
       value: 
-      objectReference: {fileID: 5070642605049537569, guid: c951178ca67c9fe4284768ff0b9a57e8, type: 3}
+      objectReference: {fileID: 9138917574908115383, guid: 95f1a37755976c44285a834f07f04ca6, type: 3}
     - target: {fileID: 6502152590530649432, guid: 1aa4e1eabfbbac146993d92f6cc83bd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.63
@@ -42615,6 +42615,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4224106337847807301, guid: aa36e8009a49dd241a27000404fe5f60, type: 3}
+      propertyPath: posiblesDrops.Array.data[0].objeto
+      value: 
+      objectReference: {fileID: 9138917574908115383, guid: 95f1a37755976c44285a834f07f04ca6, type: 3}
+    - target: {fileID: 4224106337847807301, guid: aa36e8009a49dd241a27000404fe5f60, type: 3}
+      propertyPath: posiblesDrops.Array.data[1].objeto
+      value: 
+      objectReference: {fileID: 4740791171100525765, guid: af6f819b99a00e44296d9d473e88564b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

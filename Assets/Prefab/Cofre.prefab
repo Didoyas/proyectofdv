@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::Cofre
   posiblesDrops:
-  - objeto: {fileID: 5070642605049537569, guid: c951178ca67c9fe4284768ff0b9a57e8, type: 3}
+  - objeto: {fileID: 9138917574908115383, guid: 95f1a37755976c44285a834f07f04ca6, type: 3}
     probabilidad: 25
-  - objeto: {fileID: 9002252035468472191, guid: 0cb562d3d5e7ecf48a8e92c795009dd3, type: 3}
+  - objeto: {fileID: 4740791171100525765, guid: af6f819b99a00e44296d9d473e88564b, type: 3}
     probabilidad: 25
   - objeto: {fileID: 207451566603198012, guid: 8b17d52e531aec445b220e43947893ae, type: 3}
     probabilidad: 50
