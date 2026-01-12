@@ -22,6 +22,7 @@ public class Movimiento : MonoBehaviour
         get { return _dashTimer; }
         set { _dashTimer = Mathf.Max(0f, value); }
     }
+
     private float _cooldownTimer;
     private float cooldownTimer
     {
@@ -58,14 +59,16 @@ public class Movimiento : MonoBehaviour
         {
             dashDirection = movement;
             dashTimer = dashDuration;
+
             VidaPlayer vidaPlayer = GetComponent<VidaPlayer>();
             if (vidaPlayer != null)
             {
                 StartCoroutine(vidaPlayer.HacerInvulnerable(dashDuration));
             }
         }
-        if(dashGestor != null)
-        dashGestor.ActualizarImagen(dashTimer > 0f);
+
+        if (dashGestor != null)
+            dashGestor.ActualizarImagen(dashTimer > 0f);
     }
 
     void FixedUpdate()
@@ -74,18 +77,15 @@ public class Movimiento : MonoBehaviour
         movement.Normalize();
 
         if (cooldownTimer > 0f)
-        {
             cooldownTimer -= Time.fixedDeltaTime;
-        }
 
         if (dashTimer > 0f)
         {
             rb.linearVelocity = dashDirection * dashSpeed;
             dashTimer -= Time.fixedDeltaTime;
+
             if (dashTimer <= 0f)
-            {
                 cooldownTimer = dashDuration;
-            }
         }
         else
         {
@@ -104,8 +104,13 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-    //Empleado para Animacion
+    // Animacion
     public Vector2 VelocidadActual => rb.linearVelocity;
 
+    // CLAVE PARA LA VOLTERETA
+    public bool EstaHaciendoDash => dashTimer > 0f;
+
+    // Para saber hacia qué lado se hace el dash
+    public float DireccionDashX => dashDirection.x;
 
 }
