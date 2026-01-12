@@ -19,10 +19,13 @@ public class Cofre : MonoBehaviour
     [SerializeField] private Sprite spriteAbierto;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private AudioSource sonidoAbrir;
+
     void Start()
     {
         jugador = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sonidoAbrir = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -40,6 +43,11 @@ public class Cofre : MonoBehaviour
     void AbrirCofre()
     {
         abierto = true;
+
+        if (sonidoAbrir != null)
+    {
+        sonidoAbrir.Play();
+    }
 
         if (spriteRenderer != null && spriteAbierto != null)
         {
