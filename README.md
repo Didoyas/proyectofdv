@@ -1,2 +1,2 @@
-# LA RANITAAA
+# LA RANITA
 Grupo 1
